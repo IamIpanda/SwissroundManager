@@ -11,14 +11,14 @@
   'peace': config.score.peaceScore
   'bye': config.score.byeScore
 @player.prototype.win = ->
-  @results.push 'win'#config.score.winScore
+  @results.push 'win' #config.score.winScore
 @player.prototype.bye = ->
-  @results.push 'bye'#config.score.byeScore
+  @results.push 'bye' #config.score.byeScore
   @matches.push null
 @player.prototype.peace = ->
-  @results.push 'peace'#config.score.pairScore
+  @results.push 'peace' #config.score.pairScore
 @player.prototype.lose = ->
-  @results.push 'lose'#config.score.loseScore
+  @results.push 'lose' #config.score.loseScore
 @player.prototype.rollback = ->
   @results.pop()
 @player.prototype.getScore = ->
@@ -160,7 +160,7 @@ Object.defineProperty @match.prototype, 'state',
   operatingPlayers = this.sortPlayers operatingPlayers
   # 贪心匹配
   while operatingPlayers.length > 0
-    # 抽出第一个玩家
+# 抽出第一个玩家
     matchingPlayerA = operatingPlayers[0]
     index = 1
     console.log "试图匹配: #{matchingPlayerA.name}, #{operatingPlayers[index].name}"
@@ -234,7 +234,7 @@ Object.defineProperty @match.prototype, 'state',
   @rounds[@rounds.length - 1]
 @data.addPlayer = (name) ->
   @players.push new player(name)
-  # 充轮空
+# 充轮空
 @data.hasMet = (player1, player2) ->
   if !player1 or !player2
     return null

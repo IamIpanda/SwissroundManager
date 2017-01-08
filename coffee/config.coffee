@@ -7,11 +7,11 @@
 
 # 得分
 @config.score =
-  # 胜利得分
+# 胜利得分
   'winScore': 1,
-  # 平局得分
+# 平局得分
   'peaceScore': 0,
-  # 轮空得分
+# 轮空得分
   'byeScore': 0,
-  # 败北得分
+# 败北得分
   'loseScore': 0

@@ -8,7 +8,7 @@
 
 @onInitIndexPlayer = (page) ->
   buildIndexPlayer data.players
-  
+
 @onInitPlayer = (page) ->
   buildPlayer global.data.player
 

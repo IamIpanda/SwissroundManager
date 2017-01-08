@@ -1,1 +1,108 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><title>肮脏的瑞士轮屁眼交易</title><link rel="stylesheet" href="./../bower_components/Framework7/dist/css/framework7.ios.min.css"><link rel="stylesheet" href="./../bower_components/Framework7/dist/css/framework7.ios.colors.min.css"><link rel="stylesheet" href="./../less/main.css"></head><body><div class="statusbar-overlay"></div><div class="panel-overlay"></div><div class="panel panel-left panel-reveal"><div class="content-block"></div></div><div class="panel panel-right panel-reveal"><div class="content-block"></div></div><div class="views"><div class="view view-left navbar-through"><div class="navbar"><div class="navbar-inner"><div class="center sliding">瑞士轮</div></div></div><div class="pages"><div data-page="index-1" class="page"><div class="page-content"><div class="content-block-title">瑞士轮控制</div><div class="list-block"><ul><li><a href="index-match.html" data-view=".view-main" class="item-link"><div class="item-content"><div class="item-inner"><div class="item-title">对阵</div></div></div></a></li><li><a href="index-player.html" data-view=".view-main" class="item-link"><div class="item-content"><div class="item-inner"><div class="item-title">牌手</div></div></div></a></li><li><a href="index-history.html" data-view=".view-main" class="item-link"><div class="item-content"><div class="item-inner"><div class="item-title">历史</div></div></div></a></li></ul></div><div class="content-block-title">操作</div><div class="list-block"><ul><li><a href="#" class="item-link"><div class="item-content"><div class="item-inner"><div class="item-title">结束瑞士轮</div></div></div></a></li><li><a href="#" class="item-link"><div class="item-content"><div class="item-inner"><div class="item-title">重启比赛</div></div></div></a></li></ul></div></div></div></div></div><div class="view view-main navbar-through"><div class="navbar"><div class="navbar-inner"><div class="center sliding">第一轮</div></div></div><div id="right-pages" class="pages"><div data-page="no" class="page"></div></div></div></div><script type="text/javascript" src="./../bower_components/Framework7/dist/js/framework7.min.js"></script><script type="text/javascript" src="./../bower_components/jQuery/dist/jquery.min.js"></script><script type="text/javascript" src="./../coffee/core.js"></script><script type="text/javascript" src="./../coffee/config.js"></script><script type="text/javascript" src="./../coffee/datas.js"></script><script type="text/javascript" src="./../coffee/global.js"></script><script type="text/javascript" src="./../coffee/indexMatch.js"></script><script type="text/javascript" src="./../coffee/indexHistory.js"></script><script type="text/javascript" src="./../coffee/indexPlayer.js"></script><script type="text/javascript" src="./../coffee/match.js"></script><script type="text/javascript" src="./../coffee/player.js"></script><script type="text/javascript" src="./../coffee/test.js"></script><script type="text/javascript" src="./../coffee/switch.js"></script><script type="text/javascript" src="./../coffee/app.js"></script></body></html>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>肮脏的瑞士轮屁眼交易</title>
+    <link rel="stylesheet" href="./../bower_components/Framework7/dist/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="./../bower_components/Framework7/dist/css/framework7.ios.colors.min.css">
+    <link rel="stylesheet" href="./../less/main.css">
+</head>
+<body>
+<div class="statusbar-overlay"></div>
+<div class="panel-overlay"></div>
+<div class="panel panel-left panel-reveal">
+    <div class="content-block"></div>
+</div>
+<div class="panel panel-right panel-reveal">
+    <div class="content-block"></div>
+</div>
+<div class="views">
+    <div class="view view-left navbar-through">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="center sliding">瑞士轮</div>
+            </div>
+        </div>
+        <div class="pages">
+            <div data-page="index-1" class="page">
+                <div class="page-content">
+                    <div class="content-block-title">瑞士轮控制</div>
+                    <div class="list-block">
+                        <ul>
+                            <li><a href="index-match.html" data-view=".view-main" class="item-link">
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title">对阵</div>
+                                    </div>
+                                </div>
+                            </a></li>
+                            <li><a href="index-player.html" data-view=".view-main" class="item-link">
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title">牌手</div>
+                                    </div>
+                                </div>
+                            </a></li>
+                            <li><a href="index-history.html" data-view=".view-main" class="item-link">
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title">历史</div>
+                                    </div>
+                                </div>
+                            </a></li>
+                        </ul>
+                    </div>
+                    <div class="content-block-title">操作</div>
+                    <div class="list-block">
+                        <ul>
+                            <li><a href="#" class="item-link">
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title">结束瑞士轮</div>
+                                    </div>
+                                </div>
+                            </a></li>
+                            <li><a href="#" class="item-link">
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title">重启比赛</div>
+                                    </div>
+                                </div>
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="view view-main navbar-through">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="center sliding">第一轮</div>
+            </div>
+        </div>
+        <div id="right-pages" class="pages">
+            <div data-page="no" class="page"></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="./../bower_components/Framework7/dist/js/framework7.min.js"></script>
+<script type="text/javascript" src="./../bower_components/jQuery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="./../coffee/core.js"></script>
+<script type="text/javascript" src="./../coffee/config.js"></script>
+<script type="text/javascript" src="./../coffee/datas.js"></script>
+<script type="text/javascript" src="./../coffee/global.js"></script>
+<script type="text/javascript" src="./../coffee/indexMatch.js"></script>
+<script type="text/javascript" src="./../coffee/indexHistory.js"></script>
+<script type="text/javascript" src="./../coffee/indexPlayer.js"></script>
+<script type="text/javascript" src="./../coffee/match.js"></script>
+<script type="text/javascript" src="./../coffee/player.js"></script>
+<script type="text/javascript" src="./../coffee/test.js"></script>
+<script type="text/javascript" src="./../coffee/switch.js"></script>
+<script type="text/javascript" src="./../coffee/app.js"></script>
+</body>
+</html>
