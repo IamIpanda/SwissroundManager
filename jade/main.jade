@@ -1,0 +1,81 @@
+doctype
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui")
+    meta(name='apple-mobile-web-app-capable', content='yes')
+    meta(name="apple-mobile-web-app-status-bar-style", content="black")
+    title 肮脏的瑞士轮屁眼交易
+    link(rel="stylesheet", href="./../bower_components/Framework7/dist/css/framework7.ios.min.css")
+    link(rel="stylesheet", href="./../bower_components/Framework7/dist/css/framework7.ios.colors.min.css")
+    link(rel="stylesheet", href="./../less/main.css")
+  body
+    .statusbar-overlay
+    .panel-overlay
+    .panel.panel-left.panel-reveal
+      .content-block
+    .panel.panel-right.panel-reveal
+      .content-block
+    .views
+      .view.view-left.navbar-through
+        .navbar
+          .navbar-inner
+            .center.sliding 瑞士轮
+        .pages
+          .page(data-page="index-1")
+            .page-content
+              .content-block-title 瑞士轮控制
+              .list-block
+                ul
+                  li
+                    a(href="index-match.html", data-view=".view-main").item-link
+                      .item-content
+                        .item-inner
+                          .item-title 对阵
+                  li
+                    a(href="index-player.html", data-view=".view-main").item-link
+                      .item-content
+                        .item-inner
+                          .item-title 牌手
+                  li
+                    a(href="index-history.html", data-view=".view-main").item-link
+                      .item-content
+                        .item-inner
+                          .item-title 历史
+
+              .content-block-title 操作
+              .list-block
+                ul
+                  li
+                    a(href="#").item-link
+                      .item-content
+                        .item-inner
+                          .item-title 结束瑞士轮
+                  li
+                    a(href="#").item-link
+                      .item-content
+                        .item-inner
+                          .item-title 重启比赛
+
+      .view.view-main.navbar-through
+        .navbar
+          .navbar-inner
+            .center.sliding 第一轮
+        #right-pages.pages
+          .page(data-page="no")
+
+
+    script(type="text/javascript", src="./../bower_components/Framework7/dist/js/framework7.min.js")
+    script(type="text/javascript", src="./../bower_components/jQuery/dist/jquery.min.js")
+    script(type="text/javascript", src="./../coffee/core.js")
+    script(type="text/javascript", src="./../coffee/config.js")
+    script(type="text/javascript", src="./../coffee/datas.js")
+    script(type="text/javascript", src="./../coffee/global.js")
+    script(type="text/javascript", src="./../coffee/indexMatch.js")
+    script(type="text/javascript", src="./../coffee/indexHistory.js")
+    script(type="text/javascript", src="./../coffee/indexPlayer.js")
+    script(type="text/javascript", src="./../coffee/match.js")
+    script(type="text/javascript", src="./../coffee/player.js")
+    script(type="text/javascript", src="./../coffee/test.js")
+    script(type="text/javascript", src="./../coffee/switch.js")
+    script(type="text/javascript", src="./../coffee/app.js")

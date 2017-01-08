@@ -1,0 +1,58 @@
+doctype
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui")
+    meta(name='apple-mobile-web-app-capable', content='yes')
+    meta(name="apple-mobile-web-app-status-bar-style", content="black")
+    title 肮脏的瑞士轮 py 游戏
+    link(rel="stylesheet", href="./../bower_components/Framework7/dist/css/framework7.ios.min.css")
+  body
+    .statusbar-overlay
+
+    .views
+      .view.view-main
+        .navbar
+          .navbar-inner(data-page="index")
+            .center.sliding 瑞士轮管理
+        .pages.navbar-through.toolbar-through
+          .page(data-page="index")
+            .page-content
+              .content-block-title 开始一场比赛
+              .list-block.inset
+                ul
+                  li
+                    .item-content
+                      .item-inner
+                        .item-title.label 名称
+                        .item-input
+                          input(type="text", placeholder="LL杯")
+                ul
+                  li
+                    .item-content
+                      .item-inner
+                        .item-title.label 轮数
+                        .item-input
+                          input(type="number", placeholder="4")
+                ul
+                  li
+                    .item-content
+                      .item-inner
+                        .item-title.label 平局
+                        .item-input
+                          select
+                            option 允许
+                            option 双败
+                            option 禁止
+                .content-block
+                  input(type="submit", value="开始").button.button-big.button-fill.color-green
+              .content-block-title 杂项
+              .list-block.inset
+                ul
+                  li
+                    a(href="#about").item-link
+                      .item-content
+                        .item-inner
+                          .item-title 关于
+
+    script(type="text/javascript", src="./../bower_components/Framework7/dist/js/framework7.min.js")

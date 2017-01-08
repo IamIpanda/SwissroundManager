@@ -1,0 +1,40 @@
+.view.view-main
+  .navbar
+    .navbar-inner
+      .center.sliding 第三轮
+  .page(data-page="index-match")
+    .page-content
+      #roundName.content-block-title 第三轮对局
+      #roundMatches.list-block.inset
+        ul
+          li
+            a(href="match.html").item-link
+              .item-content
+                .item-inner
+                  .item-title 废铁 对阵 剑圣
+                  .item-after 废铁胜利
+          li
+            a(href="#").item-link
+              .item-content
+                .item-inner
+                  .item-title 熊猫 对阵 枪兵
+                  .item-after 等待开始
+          li
+            a(href="#").item-link
+              .item-content
+                .item-inner
+                  .item-title 无神论 对阵 翔君
+                  .item-after 等待开始
+          li
+            a(href="#").item-link
+              .item-content
+                .item-inner
+                  .item-title 爽哥 对阵 混沌饭
+                  .item-after 等待开始
+      .content-block
+        p
+          a#button-manual-set-match(href="#").button.button-round 人工安排对阵
+        p
+          a#button-start-all-matches(href="#").button.button-round.active 开始所有对局
+        p
+          a#button-end-this-round(href="#").button.button-round.button-fill.color-red 结束本轮

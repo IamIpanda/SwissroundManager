@@ -1,0 +1,26 @@
+.view.view-main.navbar-through
+  .navbar
+    .navbar-inner
+      .left
+        a(href="#").back.link
+          i.icon.icon-back
+          span 后退
+      .center.sliding 对局
+  .pages
+    .page(data-page="match")
+      .page-content
+        #match-title.content-block-title 第三轮 第一桌
+        .content-block
+          .row
+            #player1-name-box.col-45.normal-col-player 废铁
+            .col-10.normal-col-vs vs
+            #player2-name-box.col-45.normal-col-player 剑圣
+          .row
+            .col-33
+              a#button-player1-win(href="#").button 废铁胜利
+            .col-33
+              a#button-players-draw(href="#").button 平局
+            .col-33
+              a#button-player2-win(href="#").button 剑圣胜利
+          .row
+            #match-report.col-100.normal-col-player 废铁 战胜了 剑圣
