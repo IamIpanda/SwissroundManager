@@ -1,16 +1,40 @@
 @app = new Framework7()
-$$ = Dom7
+@$$ = Dom7
 
-leftView = @app.addView '.view-left',
-  dynamicNavbar: true
+@loadLeader = ->
+  viewLeader = @app.addView "#view-leader",
+    dynamicNavbar: true
+  viewLeader.loadPage 'leader.html'
+  @app.hideToolbar '#toolbar'
 
-rightView = @app.addView '.view-main',
-  dynamicNavbar: true
+  @app.onPageInit 'leader-page', @onLeaderload
+  @app.onPageInit 'index-edit-player',@onInitIndexEditPlayer
+  @app.onPageInit 'edit-player', @onInitEditPlayer
 
-@app.onPageInit 'index-match', @onInitIndexMatch
-@app.onPageInit 'index-player', @onInitIndexPlayer
-@app.onPageInit 'index-history', @onInitIndexHistory
-@app.onPageInit 'match', @onInitMatch
-@app.onPageInit 'player', @onInitPlayer
+  @app.onPageBack 'edit-player', @onInitIndexEditPlayer
+@loadMain = ->
+  viewIndexMatch = @app.addView '#view-index-match',
+    dynamicNavbar: true
+  viewIndexPlayer = @app.addView '#view-index-player',
+    dynamicNavbar: true
+  viewIndexHistory = @app.addView '#view-index-history',
+    dynamicNavbar: true
+  viewIndexConfig = @app.addView '#view-index-control',
+    dynamicNavbar: true
 
-@app.onPageBack 'match', @onInitIndexMatch
+  viewIndexMatch.loadPage 'index-match.html'
+  viewIndexPlayer.loadPage 'index-player.html'
+  viewIndexHistory.loadPage 'index-history.html'
+
+  @app.onPageInit 'index-match', @onInitIndexMatch
+  @app.onPageInit 'index-player', @onInitIndexPlayer
+  @app.onPageInit 'index-history', @onInitIndexHistory
+  @app.onPageInit 'match', @onInitMatch
+  @app.onPageInit 'player', @onInitPlayer
+
+  @app.onPageBack 'match', @onInitIndexMatch
+
+  @app.showToolbar '#toolbar'
+  @app.showTab '#view-index-match'
+
+@loadLeader()

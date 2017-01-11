@@ -1,0 +1,18 @@
+.view.view-main
+  .navbar
+    .navbar-inner
+      .left
+        a(href="#").back.link
+          i.icon.icon-back
+          span 后退
+      .center.sliding 编辑牌手
+  .pages
+    .page(data-page="index-edit-player")
+      .page-content
+        .content-block-title 牌手列表
+        #players-list.list-block.inset
+          ul
+            li
+              a#new-player(href="edit-player.html").item-content
+                .item-inner
+                  .item-title 添加牌手

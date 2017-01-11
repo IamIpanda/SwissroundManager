@@ -19,3 +19,8 @@
 
 @onLeaveIndexHistory = (page) ->
 
+@onInitIndexEditPlayer = (page) ->
+  buildIndexPlayerWithAdd data.players
+
+@onInitEditPlayer = (page) ->
+  buildEditPlayer()

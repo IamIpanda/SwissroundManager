@@ -5,7 +5,7 @@ html
     meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui")
     meta(name='apple-mobile-web-app-capable', content='yes')
     meta(name="apple-mobile-web-app-status-bar-style", content="black")
-    title 肮脏的瑞士轮屁眼交易
+    title 今天爽哥也在玩萌娘
     link(rel="stylesheet", href="./../bower_components/Framework7/dist/css/framework7.ios.min.css")
     link(rel="stylesheet", href="./../bower_components/Framework7/dist/css/framework7.ios.colors.min.css")
     link(rel="stylesheet", href="./../less/main.css")
@@ -16,54 +16,51 @@ html
       .content-block
     .panel.panel-right.panel-reveal
       .content-block
-    .views
-      .view.view-left.navbar-through
+    .views.tabs.toolbar-through
+      .view.tab.active#view-leader
         .navbar
           .navbar-inner
-            .center.sliding 瑞士轮
-        .pages
-          .page(data-page="index-1")
-            .page-content
-              .content-block-title 瑞士轮控制
-              .list-block
-                ul
-                  li
-                    a(href="index-match.html", data-view=".view-main").item-link
-                      .item-content
-                        .item-inner
-                          .item-title 对阵
-                  li
-                    a(href="index-player.html", data-view=".view-main").item-link
-                      .item-content
-                        .item-inner
-                          .item-title 牌手
-                  li
-                    a(href="index-history.html", data-view=".view-main").item-link
-                      .item-content
-                        .item-inner
-                          .item-title 历史
-
-              .content-block-title 操作
-              .list-block
-                ul
-                  li
-                    a(href="#").item-link
-                      .item-content
-                        .item-inner
-                          .item-title 结束瑞士轮
-                  li
-                    a(href="#").item-link
-                      .item-content
-                        .item-inner
-                          .item-title 重启比赛
-
-      .view.view-main.navbar-through
+            .center.sliding 肮脏的瑞士轮屁眼交易
+        .pages.navbar-through
+          .page
+      .view.tab#view-index-match
         .navbar
           .navbar-inner
-            .center.sliding 第一轮
-        #right-pages.pages
-          .page(data-page="no")
-
+            .center.sliding 对局
+        .pages.navbar-through
+          .page
+      .view.tab#view-index-player
+        .navbar
+          .navbar-inner
+            .center.sliding 牌手
+        .pages.navbar-through
+          .page
+      .view.tab#view-index-history
+        .navbar
+          .navbar-inner
+            .center.sliding 历史
+        .pages.navbar-through
+          .page
+      .view.tab#view-index-control
+        .navbar
+          .navbar-inner
+            .center.sliding 控制
+        .pages.navbar-through
+          .page
+      .toolbar.tabbar.tabbar-labels#toolbar
+        .toolbar-inner
+          a(href="#view-index-match").tab-link.active
+            i.icon
+            span.tabbar-label 对局
+          a(href="#view-index-player").tab-link
+            i.icon
+            span.tabbar-label 牌手
+          a(href="#view-index-history").tab-link
+            i.icon
+            span.tabbar-label 历史
+          a(href="#view-index-control").tab-link
+            i.icon
+            span.tabbar-label 控制
 
     script(type="text/javascript", src="./../bower_components/Framework7/dist/js/framework7.min.js")
     script(type="text/javascript", src="./../bower_components/jQuery/dist/jquery.min.js")
@@ -74,8 +71,10 @@ html
     script(type="text/javascript", src="./../coffee/indexMatch.js")
     script(type="text/javascript", src="./../coffee/indexHistory.js")
     script(type="text/javascript", src="./../coffee/indexPlayer.js")
+    script(type="text/javascript", src="./../coffee/editPlayer.js")
     script(type="text/javascript", src="./../coffee/match.js")
     script(type="text/javascript", src="./../coffee/player.js")
     script(type="text/javascript", src="./../coffee/test.js")
     script(type="text/javascript", src="./../coffee/switch.js")
+    script(type="text/javascript", src="./../coffee/leader.js")
     script(type="text/javascript", src="./../coffee/app.js")

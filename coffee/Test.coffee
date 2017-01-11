@@ -7,10 +7,3 @@
 @data.addPlayer '败天'
 @data.addPlayer '问号'
 @data.addPlayer '觉皇'
-
-@data.newRound()
-round = @data.rounds[0]
-match.state = 'win' for match in round.matches
-@data.newRound()
-round = @data.rounds[1]
-round.startAll()

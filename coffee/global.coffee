@@ -1,6 +1,7 @@
 @global = ->
+  console.log 'Global is a static class.'
 @global.getState = ->
-  $('#right-pages .page.page-on-center').attr('data-page')
+  $('.view.active .pages .page.page-on-center').attr('data-page')
 @global.getLastState = ->
 @global.getData = ->
   this[this.getState()]
@@ -12,5 +13,5 @@ Object.defineProperty @global, 'data', get: @global.getData
 @global["index-player"] = {}
 @global["match"] = {}
 @global["player"] = {}
-
-
+@global['index-edit-player'] = {}
+@global['edit-player'] = {}
