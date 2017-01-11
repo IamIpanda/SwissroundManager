@@ -5,6 +5,7 @@
   $('#player2-name-box').html match.player2.name
   updateMatch match
   setMatchScript()
+  setPeaceConfig()
 
 updateMatch = (match) ->
   $('#match-report').html match.reportStr()
@@ -34,3 +35,10 @@ updateMatch = (match) ->
   $('#button-players-draw').on 'click', ->
     global.data.match.state = 'peace'
     updateMatch global.data.match
+
+setPeaceConfig = ->
+  switch config.peace
+    when 'yes', 'lose'
+      $('#button-players-draw').show()
+    when 'no'
+      $('#button-players-draw').hide()

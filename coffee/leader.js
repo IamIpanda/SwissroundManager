@@ -2,7 +2,8 @@
 (function() {
   var pressStart, setPlaceholder;
 
-  this.onLeaderload = function() {
+  this.buildLeader = function() {
+    setPlaceholder();
     return $('#start-button').on('click', function() {
       pressStart();
       return loadMain();
@@ -18,15 +19,22 @@
     if (game.rounds === "" || !game.rounds) {
       game.rounds = $('#input-game-rounds')[0].placeholder;
     }
+    game.config.peace = {
+      "允许": "yes",
+      "双败": "lose",
+      "禁止": "no"
+    }[$('#input-game-peace')[0].value];
+    if (game.config.peace === 'lose') {
+      game.config.score.peaceScore = 0;
+    }
     return data.newRound();
   };
 
   setPlaceholder = function() {
     var count;
-    count = Math.floor(data.players.count / 2);
+    count = Math.floor(data.players.length / 2);
     count = Math.max(count, 3);
-    $('#input-game-rounds')[0].placeholder = count.toString();
-    return console.log(count);
+    return $('#input-game-rounds')[0].placeholder = count.toString();
   };
 
 }).call(this);

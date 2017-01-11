@@ -7,7 +7,7 @@
   viewLeader.loadPage 'leader.html'
   @app.hideToolbar '#toolbar'
 
-  @app.onPageInit 'leader-page', @onLeaderload
+  @app.onPageInit 'leader-page', @onInitLeader
   @app.onPageInit 'index-edit-player',@onInitIndexEditPlayer
   @app.onPageInit 'edit-player', @onInitEditPlayer
 

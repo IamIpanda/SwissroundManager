@@ -8,8 +8,6 @@
     return buildMatch(global.data.match);
   };
 
-  this.onLeaveMatch = function(page) {};
-
   this.onInitIndexPlayer = function(page) {
     return buildIndexPlayer(data.players);
   };
@@ -18,13 +16,13 @@
     return buildPlayer(global.data.player);
   };
 
-  this.onLeaveIndexPlayer = function(page) {};
-
   this.onInitIndexHistory = function(page) {
     return buildIndexHistory();
   };
 
-  this.onLeaveIndexHistory = function(page) {};
+    this.onInitLeader = function (page) {
+        return buildLeader();
+    };
 
   this.onInitIndexEditPlayer = function(page) {
     return buildIndexPlayerWithAdd(data.players);

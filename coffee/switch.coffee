@@ -4,20 +4,17 @@
 @onInitMatch = (page) ->
   buildMatch global.data.match
 
-@onLeaveMatch = (page) ->
-
 @onInitIndexPlayer = (page) ->
   buildIndexPlayer data.players
 
 @onInitPlayer = (page) ->
   buildPlayer global.data.player
 
-@onLeaveIndexPlayer = (page) ->
-
 @onInitIndexHistory = (page) ->
   buildIndexHistory()
 
-@onLeaveIndexHistory = (page) ->
+@onInitLeader = (page) ->
+  buildLeader()
 
 @onInitIndexEditPlayer = (page) ->
   buildIndexPlayerWithAdd data.players

@@ -11,7 +11,7 @@
     });
     viewLeader.loadPage('leader.html');
     this.app.hideToolbar('#toolbar');
-    this.app.onPageInit('leader-page', this.onLeaderload);
+      this.app.onPageInit('leader-page', this.onInitLeader);
     this.app.onPageInit('index-edit-player', this.onInitIndexEditPlayer);
     this.app.onPageInit('edit-player', this.onInitEditPlayer);
     return this.app.onPageBack('edit-player', this.onInitIndexEditPlayer);
