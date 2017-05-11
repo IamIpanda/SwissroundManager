@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>规则设置</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>得分</ion-list-header>
+    <ion-item>
+      <ion-label fixed>胜者得分</ion-label>
+      <ion-input type="number" placeholder="1" value="{{score[matchState.Win]}}" (blur)="inputValueChanged($event, matchState.Win)"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>败者得分</ion-label>
+      <ion-input type="number" placeholder="0" value="{{score[matchState.Lose]}}" (blur)="inputValueChanged($event, matchState.Lose)"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>平局得分</ion-label>
+      <ion-input type="number" placeholder="0" value="{{score[matchState.Peace]}}" (blur)="inputValueChanged($event, matchState.Peace)"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>轮空得分</ion-label>
+      <ion-input type="number" placeholder="0" value="{{score[matchState.Bye]}}" (blur)="inputValueChanged($event, matchState.Bye)"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-row>
+    <ion-col col-6>
+      <button ion-button block (click)="defaultsTapped($event)">预设</button>
+    </ion-col>
+    <ion-col col-6>
+      <button ion-button block (click)="peaceTapped($event)">平局</button>
+    </ion-col>
+  </ion-row>
+</ion-content>

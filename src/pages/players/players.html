@@ -1,0 +1,20 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>牌手</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-list>
+        <button ion-item *ngFor="let player of players" (click)="itemTapped($event, player)">
+            {{player.name}}
+            <div class="item-note" item-right>
+                {{player.winLoseStr}}
+            </div>
+        </button>
+    </ion-list>
+</ion-content>

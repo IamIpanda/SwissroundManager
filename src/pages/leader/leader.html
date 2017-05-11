@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>比赛设置</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label fixed>比赛名称</ion-label>
+      <ion-input #gameName type="input" placeholder="LL 杯" (blur)="matchNameChanged($event)"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>轮数</ion-label>
+      <ion-input #gameRoundCount type="number" placeholder="4" (blur)="roundCountChanged($event)"></ion-input>
+    </ion-item>
+    <ion-item (click)="ruleTapped(event)">
+      <h2>赛制</h2>
+      <p>{{config.ruleDescription}}</p>
+    </ion-item>
+    <button ion-item (click)="playersTapped(event)">选手</button>
+  </ion-list>
+  <button ion-button block (click)="startGameTapped($event)">开始比赛</button>
+</ion-content>

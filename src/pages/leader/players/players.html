@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>牌手设置</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item-sliding #item *ngFor="let player of players" (click)="itemTapped($event, player)">
+      <button ion-item>
+        <ion-label fixed *ngIf="editingPlayer == player">编辑牌手</ion-label>
+        <ion-input type="input" value="{{player.name}}" placeholder="神秘牌手" (focus)="playerFocused($event, player)" (blur)="playerBlured($event, player)"></ion-input>
+      </button>
+      <ion-item-options side="right">
+        <!--<button ion-button (click)="editPlayer($event, player)">编辑</button>-->
+        <button ion-button (click)="removePlayer($event, player)" color="danger">删除</button>
+      </ion-item-options>
+    </ion-item-sliding>
+    <button ion-item (click)="addPlayer($event)">¡
+      <ion-label fixed>添加牌手</ion-label>
+      <ion-input #newPlayerInput type="input" *ngIf="isAddingUser" (blur)="addingUserEdited($event)"></ion-input>
+    </button>
+  </ion-list>
+</ion-content>

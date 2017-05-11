@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{game.gameName}} 第 {{round.order}} 轮</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-list>
+        <button ion-item *ngFor="let match of matches" (click)="itemTapped($event, match)">
+            {{match.player1.name}} 对阵 {{match.player2.name}}
+            <div class="item-note" item-right>
+                {{match.stateStr}}
+            </div>
+        </button>
+        <ion-item *ngIf="round.byePlayer != null">
+            {{round.byePlayer.name}} 本轮轮空
+        </ion-item>
+    </ion-list>
+
+    <button ion-button block color="default" (click)="startAllTapped(event)">开始所有对局</button>
+    <button ion-button block color="danger" (click)="endThisRoundTapped(event)">结束本轮</button>
+</ion-content>
+

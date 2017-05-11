@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>牌手 {{player.name}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-list>
+        <ion-list-header>
+            牌手 {{player.name}} 当前 {{player.winCount}} 胜 {{player.loseCount}} 负 {{player.peaceCount}} 平，{{player.byeCount}} 轮轮空共积 {{player.score}} 分，排位第 {{player.rank}}。
+        </ion-list-header>
+        <button ion-item *ngFor="let match of player.matches; let i = index" [attr.data-index]="i" (click)="itemTapped($event, match)">
+            <h2 *ngIf="match.state != matchState.Bye">第 {{i + 1}} 轮 第 {{match.order}} 桌 对阵 {{match.anotherPlayer(player).name}}</h2>
+            <h2 *ngIf="match.state == matchState.Bye">第 {{i + 1}} 轮 轮空</h2>
+            <div class="item-note" item-right>
+                {{match.resultStr(player)}}
+            </div>
+        </button>
+    </ion-list>
+</ion-content>

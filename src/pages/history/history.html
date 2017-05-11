@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>对局历史</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-list *ngFor="let round of rounds">
+            <ion-list-header>
+                第 {{round.order}} 轮
+            </ion-list-header>
+            <button ion-item *ngFor="let match of round.matches" (click)="itemTapped($event, match)">
+                {{match.player1.name}} 对阵 {{match.player2.name}}
+                <div class="item-note" item-right>
+                    {{match.stateStr}}
+                </div>
+            </button>
+            <ion-item *ngIf="round.byePlayer != null">
+                {{round.byePlayer.name}} 轮空
+            </ion-item>
+    </ion-list>
+</ion-content>
