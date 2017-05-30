@@ -1,13 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
 *~
 .DS_Store
-run.bat
-log_error.log
-log_output.log
 .idea/
 bower_components/
-www/
 node_modules/
-platforms/
-plugins/
-resources/
