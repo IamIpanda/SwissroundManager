@@ -24665,3 +24665,13 @@ ion-navbar.toolbar {
     padding-top: calc(16px + 20px);
   }
 }
+
+ion-card-content {
+  text-align: center;
+}
+
+.card-word-vs {
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}

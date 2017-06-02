@@ -27393,13 +27393,13 @@ function Item_tsickle_Closure_declarations() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_action_sheet_action_sheet__ = __webpack_require__(55);
 /* unused harmony reexport ActionSheet */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_action_sheet_action_sheet_controller__ = __webpack_require__(116);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_3__components_action_sheet_action_sheet_controller__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return __WEBPACK_IMPORTED_MODULE_3__components_action_sheet_action_sheet_controller__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_action_sheet_action_sheet_component__ = __webpack_require__(54);
 /* unused harmony reexport ActionSheetCmp */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_alert_alert__ = __webpack_require__(57);
 /* unused harmony reexport Alert */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_alert_alert_controller__ = __webpack_require__(117);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_6__components_alert_alert_controller__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_6__components_alert_alert_controller__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_alert_alert_component__ = __webpack_require__(56);
 /* unused harmony reexport AlertCmp */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_app_app__ = __webpack_require__(6);
@@ -27493,9 +27493,9 @@ function Item_tsickle_Closure_declarations() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__components_modal_modal_component__ = __webpack_require__(71);
 /* unused harmony reexport ModalCmp */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__components_modal_modal_controller__ = __webpack_require__(146);
-/* unused harmony reexport ModalController */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_53__components_modal_modal_controller__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__components_nav_nav__ = __webpack_require__(74);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_54__components_nav_nav__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return __WEBPACK_IMPORTED_MODULE_54__components_nav_nav__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__components_nav_nav_pop__ = __webpack_require__(72);
 /* unused harmony reexport NavPop */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__components_nav_nav_pop_anchor__ = __webpack_require__(148);
@@ -27612,7 +27612,7 @@ function Item_tsickle_Closure_declarations() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_110__platform_dom_controller__ = __webpack_require__(8);
 /* unused harmony reexport DomController */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_111__platform_platform__ = __webpack_require__(3);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return __WEBPACK_IMPORTED_MODULE_111__platform_platform__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return __WEBPACK_IMPORTED_MODULE_111__platform_platform__["a"]; });
 /* unused harmony reexport setupPlatform */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_112__tap_click_haptic__ = __webpack_require__(38);
 /* unused harmony reexport Haptic */
@@ -27637,7 +27637,7 @@ function Item_tsickle_Closure_declarations() {
 /* unused harmony reexport UrlSerializer */
 /* unused harmony reexport DeepLinkConfigToken */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_121__navigation_view_controller__ = __webpack_require__(5);
-/* unused harmony reexport ViewController */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_121__navigation_view_controller__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_122__gestures_pan_gesture__ = __webpack_require__(46);
 /* unused harmony reexport PanGesture */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_123__gestures_gesture__ = __webpack_require__(234);
@@ -44909,21 +44909,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var MatchPage = (function () {
-    function MatchPage(navCtrl, navParams) {
+    function MatchPage(navCtrl, navParams, viewCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.viewCtrl = viewCtrl;
         console.log(navParams);
         this.match = navParams.get('match');
         this.MatchState = __WEBPACK_IMPORTED_MODULE_2__app_data_match__["a" /* MatchState */];
     }
     MatchPage.prototype.matchWinClick = function (event) {
         this.match.state = __WEBPACK_IMPORTED_MODULE_2__app_data_match__["a" /* MatchState */].Win;
+        this.dismiss();
     };
     MatchPage.prototype.matchPeaceClick = function (event) {
         this.match.state = __WEBPACK_IMPORTED_MODULE_2__app_data_match__["a" /* MatchState */].Peace;
+        this.dismiss();
     };
     MatchPage.prototype.matchLoseClick = function (event) {
         this.match.state = __WEBPACK_IMPORTED_MODULE_2__app_data_match__["a" /* MatchState */].Lose;
+        this.dismiss();
     };
     MatchPage.prototype.onPlayer1Click = function (event) {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__player_player__["a" /* PlayerPage */], { player: this.match.player1 });
@@ -44931,15 +44935,19 @@ var MatchPage = (function () {
     MatchPage.prototype.onPlayer2Click = function (event) {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__player_player__["a" /* PlayerPage */], { player: this.match.player2 });
     };
+    MatchPage.prototype.dismiss = function () {
+        this.viewCtrl.dismiss();
+    };
     return MatchPage;
 }());
 MatchPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-list',template:/*ion-inline-start:"/Users/iami/Programming/mixProject/SwissroundManager/Ionic/src/pages/match/match.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>{{match.player1.name}} vs {{match.player2.name}}</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n    <ion-row>\n        <ion-col col-5>\n            <ion-card (click)="onPlayer1Click(event)">\n                <ion-card-content>\n                    {{match.player1.name}}\n                </ion-card-content>\n            </ion-card>\n        </ion-col>\n        <ion-col col-2 class="card-word-vs"> vs </ion-col>\n        <ion-col col-5>\n            <ion-card (click)="onPlayer2Click(event)">\n                <ion-card-content>\n                    {{match.player2.name}}\n                </ion-card-content>\n            </ion-card>\n        </ion-col>\n    </ion-row>\n    <ion-row>\n        <ion-col col-4>\n            <button ion-button [outline]="match.state != MatchState.Win" block (click)="matchWinClick(event)">{{match.player1.name}}胜利</button>\n        </ion-col>\n        <ion-col col-4>\n            <button ion-button [outline]="match.state != MatchState.Peace" outline block (click)="matchPeaceClick(event)">双方平局</button>\n        </ion-col>\n        <ion-col col-4>\n            <button ion-button [outline]="match.state != MatchState.Lose" outline block (click)="matchLoseClick(event)">{{match.player2.name}}胜利</button>\n        </ion-col>\n    </ion-row>\n    <ion-row>\n        <ion-card>\n            <ion-card-content>\n                {{match.reportStr}}\n            </ion-card-content>\n        </ion-card>\n    </ion-row>\n</ion-content>\n'/*ion-inline-end:"/Users/iami/Programming/mixProject/SwissroundManager/Ionic/src/pages/match/match.html"*/
+        selector: 'page-list',template:/*ion-inline-start:"/Users/iami/Programming/mixProject/SwissroundManager/src/pages/match/match.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-buttons start>\n            <button ion-button icon-only navPop>\n                <ion-icon name="close"></ion-icon>\n            </button>\n        </ion-buttons>\n        <ion-title>{{match.player1.name}} vs {{match.player2.name}}</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n    <ion-row>\n        <ion-col col-5>\n            <ion-card (click)="onPlayer1Click($event)">\n                <ion-card-content>\n                    {{match.player1.name}}\n                </ion-card-content>\n            </ion-card>\n        </ion-col>\n        <ion-col col-2 class="card-word-vs"> vs </ion-col>\n        <ion-col col-5>\n            <ion-card (click)="onPlayer2Click($event)">\n                <ion-card-content>\n                    {{match.player2.name}}\n                </ion-card-content>\n            </ion-card>\n        </ion-col>\n    </ion-row>\n    <ion-row>\n        <ion-card>\n            <ion-card-content>\n                {{match.reportStr}}\n            </ion-card-content>\n        </ion-card>\n    </ion-row>\n    <ion-row>\n        <ion-col col-4>\n            <button ion-button [outline]="match.state != MatchState.Win" block (click)="matchWinClick($event)">{{match.player1.name}}胜利</button>\n        </ion-col>\n        <ion-col col-4>\n            <button ion-button [outline]="match.state != MatchState.Peace" outline block (click)="matchPeaceClick($event)">双方平局</button>\n        </ion-col>\n        <ion-col col-4>\n            <button ion-button [outline]="match.state != MatchState.Lose" outline block (click)="matchLoseClick($event)">{{match.player2.name}}胜利</button>\n        </ion-col>\n    </ion-row>\n</ion-content>\n'/*ion-inline-end:"/Users/iami/Programming/mixProject/SwissroundManager/src/pages/match/match.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ViewController */]) === "function" && _c || Object])
 ], MatchPage);
 
+var _a, _b, _c;
 //# sourceMappingURL=match.js.map
 
 /***/ }),
@@ -44968,20 +44976,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var MatchesPage = (function () {
-    function MatchesPage(navCtrl, navParams, alertCtrl) {
+    function MatchesPage(navCtrl, navParams, alertCtrl, modalCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.alertCtrl = alertCtrl;
+        this.modalCtrl = modalCtrl;
         this.round = __WEBPACK_IMPORTED_MODULE_2__app_data_data__["a" /* Data */].runningRound;
         this.matches = __WEBPACK_IMPORTED_MODULE_2__app_data_data__["a" /* Data */].runningRound.matches;
         this.game = __WEBPACK_IMPORTED_MODULE_3__app_data_game__["a" /* Game */];
     }
     MatchesPage.prototype.itemTapped = function (event, item) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__match_match__["a" /* MatchPage */], { match: item });
+        // this.navCtrl.push(MatchPage, { match: item });
+        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_4__match_match__["a" /* MatchPage */], { match: item });
+        modal.present();
     };
     MatchesPage.prototype.startAllTapped = function (event) {
         if (!this.round.canStart()) {
-            var alert_1 = this.alertCtrl.create({
+            var alert = this.alertCtrl.create({
                 title: '开始全部对局',
                 message: '部分对局已经存在结果。要擦除这些对局结果么？',
                 buttons: [
@@ -44990,14 +45001,14 @@ var MatchesPage = (function () {
                     { text: '取消' }
                 ]
             });
-            alert_1.present();
+            alert.present();
         }
         else
             this.round.startAll();
     };
     MatchesPage.prototype.endThisRoundTapped = function (event) {
         if (!this.round.canFinish()) {
-            var alert_2 = this.alertCtrl.create({
+            var alert = this.alertCtrl.create({
                 title: '结束本轮',
                 message: '部分对局还没有给出结果。要立即结束本轮么？',
                 buttons: [
@@ -45005,28 +45016,28 @@ var MatchesPage = (function () {
                     { text: '否' }
                 ]
             });
-            alert_2.present();
+            alert.present();
         }
         else
             this.newRound();
     };
     MatchesPage.prototype.newRound = function () {
         if (this.round.order >= this.game.rounds) {
-            var alert_3 = this.alertCtrl.create({
+            var alert = this.alertCtrl.create({
                 title: '瑞士轮结束',
                 message: '瑞士轮已经结束了所有轮次。'
             });
-            alert_3.present();
+            alert.present();
         }
         else {
             // 新一轮
             var ret = __WEBPACK_IMPORTED_MODULE_2__app_data_data__["a" /* Data */].newRound();
             if (!ret) {
-                var alert_4 = this.alertCtrl.create({
+                var alert = this.alertCtrl.create({
                     title: '无法排出足够数量的对局',
                     message: '瑞士轮应当结束了所有轮次'
                 });
-                alert_4.present();
+                alert.present();
             }
             // 数据同步
             this.round = __WEBPACK_IMPORTED_MODULE_2__app_data_data__["a" /* Data */].runningRound;
@@ -45037,11 +45048,12 @@ var MatchesPage = (function () {
 }());
 MatchesPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-list',template:/*ion-inline-start:"/Users/iami/Programming/mixProject/SwissroundManager/Ionic/src/pages/matches/matches.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>{{game.gameName}} 第 {{round.order}} 轮</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>\n    <ion-list>\n        <button ion-item *ngFor="let match of matches" (click)="itemTapped($event, match)">\n            {{match.player1.name}} 对阵 {{match.player2.name}}\n            <div class="item-note" item-right>\n                {{match.stateStr}}\n            </div>\n        </button>\n        <ion-item *ngIf="round.byePlayer != null">\n            {{round.byePlayer.name}} 本轮轮空\n        </ion-item>\n    </ion-list>\n\n    <button ion-button block color="default" (click)="startAllTapped(event)">开始所有对局</button>\n    <button ion-button block color="danger" (click)="endThisRoundTapped(event)">结束本轮</button>\n</ion-content>\n\n'/*ion-inline-end:"/Users/iami/Programming/mixProject/SwissroundManager/Ionic/src/pages/matches/matches.html"*/
+        selector: 'page-list',template:/*ion-inline-start:"/Users/iami/Programming/mixProject/SwissroundManager/src/pages/matches/matches.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>{{game.gameName}} 第 {{round.order}} 轮</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>\n    <ion-list>\n        <button ion-item *ngFor="let match of matches" (click)="itemTapped($event, match)">\n            {{match.player1.name}} 对阵 {{match.player2.name}}\n            <div class="item-note" item-right>\n                {{match.stateStr}}\n            </div>\n        </button>\n        <ion-item *ngIf="round.byePlayer != null">\n            {{round.byePlayer.name}} 本轮轮空\n        </ion-item>\n    </ion-list>\n\n    <button ion-button block color="default" (click)="startAllTapped(event)">开始所有对局</button>\n    <button ion-button block color="danger" (click)="endThisRoundTapped(event)">结束本轮</button>\n</ion-content>\n\n'/*ion-inline-end:"/Users/iami/Programming/mixProject/SwissroundManager/src/pages/matches/matches.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* AlertController */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* AlertController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]) === "function" && _d || Object])
 ], MatchesPage);
 
+var _a, _b, _c, _d;
 //# sourceMappingURL=matches.js.map
 
 /***/ }),
@@ -45082,7 +45094,7 @@ var PlayerPage = (function () {
 }());
 PlayerPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-list',template:/*ion-inline-start:"/Users/iami/Programming/mixProject/SwissroundManager/Ionic/src/pages/player/player.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>牌手 {{player.name}}</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>\n    <ion-list>\n        <ion-list-header>\n            牌手 {{player.name}} 当前 {{player.winCount}} 胜 {{player.loseCount}} 负 {{player.peaceCount}} 平，{{player.byeCount}} 轮轮空共积 {{player.score}} 分，排位第 {{player.rank}}。\n        </ion-list-header>\n        <button ion-item *ngFor="let match of player.matches; let i = index" [attr.data-index]="i" (click)="itemTapped($event, match)">\n            <h2 *ngIf="match.state != matchState.Bye">第 {{i + 1}} 轮 第 {{match.order}} 桌 对阵 {{match.anotherPlayer(player).name}}</h2>\n            <h2 *ngIf="match.state == matchState.Bye">第 {{i + 1}} 轮 轮空</h2>\n            <div class="item-note" item-right>\n                {{match.resultStr(player)}}\n            </div>\n        </button>\n    </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/iami/Programming/mixProject/SwissroundManager/Ionic/src/pages/player/player.html"*/
+        selector: 'page-list',template:/*ion-inline-start:"/Users/iami/Programming/mixProject/SwissroundManager/src/pages/player/player.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>牌手 {{player.name}}</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>\n    <ion-list>\n        <ion-list-header>\n            牌手 {{player.name}} 当前 {{player.winCount}} 胜 {{player.loseCount}} 负 {{player.peaceCount}} 平，{{player.byeCount}} 轮轮空共积 {{player.score}} 分，排位第 {{player.rank}}。\n        </ion-list-header>\n        <button ion-item *ngFor="let match of player.matches; let i = index" [attr.data-index]="i" (click)="itemTapped($event, match)">\n            <h2 *ngIf="match.state != matchState.Bye">第 {{i + 1}} 轮 第 {{match.order}} 桌 对阵 {{match.anotherPlayer(player).name}}</h2>\n            <h2 *ngIf="match.state == matchState.Bye">第 {{i + 1}} 轮 轮空</h2>\n            <div class="item-note" item-right>\n                {{match.resultStr(player)}}\n            </div>\n        </button>\n    </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/iami/Programming/mixProject/SwissroundManager/src/pages/player/player.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */]])
 ], PlayerPage);
@@ -56217,7 +56229,7 @@ var HistoryPage = (function () {
 }());
 HistoryPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-list',template:/*ion-inline-start:"/Users/iami/Programming/mixProject/SwissroundManager/Ionic/src/pages/history/history.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>对局历史</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>\n    <ion-list *ngFor="let round of rounds">\n            <ion-list-header>\n                第 {{round.order}} 轮\n            </ion-list-header>\n            <button ion-item *ngFor="let match of round.matches" (click)="itemTapped($event, match)">\n                {{match.player1.name}} 对阵 {{match.player2.name}}\n                <div class="item-note" item-right>\n                    {{match.stateStr}}\n                </div>\n            </button>\n            <ion-item *ngIf="round.byePlayer != null">\n                {{round.byePlayer.name}} 轮空\n            </ion-item>\n    </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/iami/Programming/mixProject/SwissroundManager/Ionic/src/pages/history/history.html"*/
+        selector: 'page-list',template:/*ion-inline-start:"/Users/iami/Programming/mixProject/SwissroundManager/src/pages/history/history.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>对局历史</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>\n    <ion-list *ngFor="let round of rounds">\n            <ion-list-header>\n                第 {{round.order}} 轮\n            </ion-list-header>\n            <button ion-item *ngFor="let match of round.matches" (click)="itemTapped($event, match)">\n                {{match.player1.name}} 对阵 {{match.player2.name}}\n                <div class="item-note" item-right>\n                    {{match.stateStr}}\n                </div>\n            </button>\n            <ion-item *ngIf="round.byePlayer != null">\n                {{round.byePlayer.name}} 轮空\n            </ion-item>\n    </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/iami/Programming/mixProject/SwissroundManager/src/pages/history/history.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */]])
 ], HistoryPage);
@@ -56307,7 +56319,7 @@ __decorate([
 ], LeaderPage.prototype, "gameRoundCountInputBox", void 0);
 LeaderPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-list',template:/*ion-inline-start:"/Users/iami/Programming/mixProject/SwissroundManager/Ionic/src/pages/leader/leader.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>比赛设置</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-item>\n      <ion-label fixed>比赛名称</ion-label>\n      <ion-input #gameName type="input" placeholder="LL 杯" (blur)="matchNameChanged($event)"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label fixed>轮数</ion-label>\n      <ion-input #gameRoundCount type="number" placeholder="4" (blur)="roundCountChanged($event)"></ion-input>\n    </ion-item>\n    <ion-item (click)="ruleTapped(event)">\n      <h2>赛制</h2>\n      <p>{{config.ruleDescription}}</p>\n    </ion-item>\n    <button ion-item (click)="playersTapped(event)">选手</button>\n  </ion-list>\n  <button ion-button block (click)="startGameTapped($event)">开始比赛</button>\n</ion-content>\n'/*ion-inline-end:"/Users/iami/Programming/mixProject/SwissroundManager/Ionic/src/pages/leader/leader.html"*/
+        selector: 'page-list',template:/*ion-inline-start:"/Users/iami/Programming/mixProject/SwissroundManager/src/pages/leader/leader.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>比赛设置</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-item>\n      <ion-label fixed>比赛名称</ion-label>\n      <ion-input #gameName type="input" placeholder="LL 杯" (blur)="matchNameChanged($event)"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label fixed>轮数</ion-label>\n      <ion-input #gameRoundCount type="number" placeholder="4" (blur)="roundCountChanged($event)"></ion-input>\n    </ion-item>\n    <ion-item (click)="ruleTapped(event)">\n      <h2>赛制</h2>\n      <p>{{config.ruleDescription}}</p>\n    </ion-item>\n    <button ion-item (click)="playersTapped(event)">选手</button>\n  </ion-list>\n  <button ion-button block (click)="startGameTapped($event)">开始比赛</button>\n</ion-content>\n'/*ion-inline-end:"/Users/iami/Programming/mixProject/SwissroundManager/src/pages/leader/leader.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */]])
 ], LeaderPage);
@@ -56380,7 +56392,7 @@ __decorate([
 ], LeaderPlayerPage.prototype, "newPlayerInput", void 0);
 LeaderPlayerPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-list',template:/*ion-inline-start:"/Users/iami/Programming/mixProject/SwissroundManager/Ionic/src/pages/leader/players/players.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>牌手设置</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-item-sliding #item *ngFor="let player of players" (click)="itemTapped($event, player)">\n      <button ion-item>\n        <ion-label fixed *ngIf="editingPlayer == player">编辑牌手</ion-label>\n        <ion-input type="input" value="{{player.name}}" placeholder="神秘牌手" (focus)="playerFocused($event, player)" (blur)="playerBlured($event, player)"></ion-input>\n      </button>\n      <ion-item-options side="right">\n        <!--<button ion-button (click)="editPlayer($event, player)">编辑</button>-->\n        <button ion-button (click)="removePlayer($event, player)" color="danger">删除</button>\n      </ion-item-options>\n    </ion-item-sliding>\n    <button ion-item (click)="addPlayer($event)">¡\n      <ion-label fixed>添加牌手</ion-label>\n      <ion-input #newPlayerInput type="input" *ngIf="isAddingUser" (blur)="addingUserEdited($event)"></ion-input>\n    </button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/iami/Programming/mixProject/SwissroundManager/Ionic/src/pages/leader/players/players.html"*/
+        selector: 'page-list',template:/*ion-inline-start:"/Users/iami/Programming/mixProject/SwissroundManager/src/pages/leader/players/players.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>牌手设置</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-item-sliding #item *ngFor="let player of players" (click)="itemTapped($event, player)">\n      <button ion-item>\n        <ion-label fixed *ngIf="editingPlayer == player">编辑牌手</ion-label>\n        <ion-input type="input" value="{{player.name}}" placeholder="神秘牌手" (focus)="playerFocused($event, player)" (blur)="playerBlured($event, player)"></ion-input>\n      </button>\n      <ion-item-options side="right">\n        <!--<button ion-button (click)="editPlayer($event, player)">编辑</button>-->\n        <button ion-button (click)="removePlayer($event, player)" color="danger">删除</button>\n      </ion-item-options>\n    </ion-item-sliding>\n    <button ion-item (click)="addPlayer($event)">¡\n      <ion-label fixed>添加牌手</ion-label>\n      <ion-input #newPlayerInput type="input" *ngIf="isAddingUser" (blur)="addingUserEdited($event)"></ion-input>\n    </button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/iami/Programming/mixProject/SwissroundManager/src/pages/leader/players/players.html"*/
     }),
     __param(2, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["g" /* Inject */])(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* ChangeDetectorRef */])),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */], Object])
@@ -56484,9 +56496,9 @@ var LeaderRulePage = (function () {
 }());
 LeaderRulePage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-list',template:/*ion-inline-start:"/Users/iami/Programming/mixProject/SwissroundManager/Ionic/src/pages/leader/rule/rule.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>规则设置</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-list-header>得分</ion-list-header>\n    <ion-item>\n      <ion-label fixed>胜者得分</ion-label>\n      <ion-input type="number" placeholder="1" value="{{score[matchState.Win]}}" (blur)="inputValueChanged($event, matchState.Win)"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label fixed>败者得分</ion-label>\n      <ion-input type="number" placeholder="0" value="{{score[matchState.Lose]}}" (blur)="inputValueChanged($event, matchState.Lose)"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label fixed>平局得分</ion-label>\n      <ion-input type="number" placeholder="0" value="{{score[matchState.Peace]}}" (blur)="inputValueChanged($event, matchState.Peace)"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label fixed>轮空得分</ion-label>\n      <ion-input type="number" placeholder="0" value="{{score[matchState.Bye]}}" (blur)="inputValueChanged($event, matchState.Bye)"></ion-input>\n    </ion-item>\n  </ion-list>\n  <ion-row>\n    <ion-col col-6>\n      <button ion-button block (click)="defaultsTapped($event)">预设</button>\n    </ion-col>\n    <ion-col col-6>\n      <button ion-button block (click)="peaceTapped($event)">平局</button>\n    </ion-col>\n  </ion-row>\n</ion-content>\n'/*ion-inline-end:"/Users/iami/Programming/mixProject/SwissroundManager/Ionic/src/pages/leader/rule/rule.html"*/
+        selector: 'page-list',template:/*ion-inline-start:"/Users/iami/Programming/mixProject/SwissroundManager/src/pages/leader/rule/rule.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>规则设置</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-list-header>得分</ion-list-header>\n    <ion-item>\n      <ion-label fixed>胜者得分</ion-label>\n      <ion-input type="number" placeholder="1" value="{{score[matchState.Win]}}" (blur)="inputValueChanged($event, matchState.Win)"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label fixed>败者得分</ion-label>\n      <ion-input type="number" placeholder="0" value="{{score[matchState.Lose]}}" (blur)="inputValueChanged($event, matchState.Lose)"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label fixed>平局得分</ion-label>\n      <ion-input type="number" placeholder="0" value="{{score[matchState.Peace]}}" (blur)="inputValueChanged($event, matchState.Peace)"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label fixed>轮空得分</ion-label>\n      <ion-input type="number" placeholder="0" value="{{score[matchState.Bye]}}" (blur)="inputValueChanged($event, matchState.Bye)"></ion-input>\n    </ion-item>\n  </ion-list>\n  <ion-row>\n    <ion-col col-6>\n      <button ion-button block (click)="defaultsTapped($event)">预设</button>\n    </ion-col>\n    <ion-col col-6>\n      <button ion-button block (click)="peaceTapped($event)">平局</button>\n    </ion-col>\n  </ion-row>\n</ion-content>\n'/*ion-inline-end:"/Users/iami/Programming/mixProject/SwissroundManager/src/pages/leader/rule/rule.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ActionSheetController */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ActionSheetController */]])
 ], LeaderRulePage);
 
 //# sourceMappingURL=rule.js.map
@@ -56528,7 +56540,7 @@ var PlayersPage = (function () {
 }());
 PlayersPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-list',template:/*ion-inline-start:"/Users/iami/Programming/mixProject/SwissroundManager/Ionic/src/pages/players/players.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>牌手</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>\n    <ion-list>\n        <button ion-item *ngFor="let player of players" (click)="itemTapped($event, player)">\n            {{player.name}}\n            <div class="item-note" item-right>\n                {{player.winLoseStr}}\n            </div>\n        </button>\n    </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/iami/Programming/mixProject/SwissroundManager/Ionic/src/pages/players/players.html"*/
+        selector: 'page-list',template:/*ion-inline-start:"/Users/iami/Programming/mixProject/SwissroundManager/src/pages/players/players.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>牌手</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>\n    <ion-list>\n        <button ion-item *ngFor="let player of players" (click)="itemTapped($event, player)">\n            {{player.name}}\n            <div class="item-note" item-right>\n                {{player.winLoseStr}}\n            </div>\n        </button>\n    </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/iami/Programming/mixProject/SwissroundManager/src/pages/players/players.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */]])
 ], PlayersPage);
@@ -75329,13 +75341,13 @@ var MyApp = (function () {
     return MyApp;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */]),
-    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */])
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Nav */]),
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Nav */])
 ], MyApp.prototype, "nav", void 0);
 MyApp = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({template:/*ion-inline-start:"/Users/iami/Programming/mixProject/SwissroundManager/Ionic/src/app/app.html"*/'<ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>菜单</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/Users/iami/Programming/mixProject/SwissroundManager/Ionic/src/app/app.html"*/
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({template:/*ion-inline-start:"/Users/iami/Programming/mixProject/SwissroundManager/src/app/app.html"*/'<ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>菜单</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/Users/iami/Programming/mixProject/SwissroundManager/src/app/app.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
 ], MyApp);
 
 //# sourceMappingURL=app.component.js.map
