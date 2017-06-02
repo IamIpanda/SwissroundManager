@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import {NavController, NavParams, ViewController} from 'ionic-angular';
 import { Match, MatchState } from "../../app/data/match";
 import {PlayerPage} from "../player/player";
 
@@ -10,7 +10,7 @@ import {PlayerPage} from "../player/player";
 export class MatchPage {
     match: Match;
     MatchState: any;
-    constructor(public navCtrl: NavController, public navParams: NavParams) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
         console.log(navParams);
         this.match = navParams.get('match');
         this.MatchState = MatchState;
@@ -18,14 +18,17 @@ export class MatchPage {
 
     matchWinClick(event) {
         this.match.state = MatchState.Win;
+        this.dismiss()
     }
 
     matchPeaceClick(event) {
         this.match.state = MatchState.Peace;
+        this.dismiss()
     }
 
     matchLoseClick(event) {
         this.match.state = MatchState.Lose;
+        this.dismiss()
     }
 
     onPlayer1Click(event) {
@@ -34,6 +37,11 @@ export class MatchPage {
 
     onPlayer2Click(event) {
         this.navCtrl.push(PlayerPage, { player : this.match.player2 });
+    }
+
+    dismiss()
+    {
+        this.viewCtrl.dismiss();
     }
 }
 

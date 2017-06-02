@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AlertController, NavController, NavParams } from 'ionic-angular';
+import {AlertController, ModalController, NavController, NavParams} from 'ionic-angular';
 import { Data } from '../../app/data/data'
 import { Match } from "../../app/data/match";
 import { Round } from "../../app/data/round";
@@ -14,14 +14,16 @@ export class MatchesPage {
     matches: Array<Match>;
     round: Round;
     game: any;
-    constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public modalCtrl: ModalController) {
         this.round = Data.runningRound;
         this.matches = Data.runningRound.matches;
         this.game = Game;
     }
 
     itemTapped(event, item) {
-        this.navCtrl.push(MatchPage, { match: item });
+        // this.navCtrl.push(MatchPage, { match: item });
+        let modal = this.modalCtrl.create(MatchPage, { match: item });
+        modal.present();
     }
 
     startAllTapped(event) {
