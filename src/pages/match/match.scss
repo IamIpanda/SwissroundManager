@@ -1,9 +1,111 @@
 ion-card-content {
   text-align: center;
+
 }
 
 .card-word-vs {
   text-align: center;
   padding-top: 30px;
   padding-bottom: 30px;
+  font-size: 18px;
+}
+
+.encounter {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.encounter > div {
+  display: inline-block;
+}
+
+.encounter > div > div {
+  float: left;
+}
+
+.encounter .player-brief {
+  padding: 5px 25px;
+}
+
+.encounter .player-brief-first .player-name,
+.encounter .player-brief-first .player-score {
+  float: right;
+}
+
+.encounter .player-name {
+  position: relative;
+  width: 77%;
+  height: 72px;
+  display: table;
+  float: left;
+  z-index: 99;
+}
+
+.encounter .player-name div {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  position: relative;
+  z-index: 99;
+}
+
+.encounter .player-name em {
+  display: block;
+  text-align: center;
+  position: relative;
+  z-index: 99;
+  line-height: 72px;
+  font-size: 18px;
+  color: #6a6a6a;
+}
+
+.player-score {
+  position: relative;
+  float: left;
+  width: 23%;
+  height: 45px;
+  margin-top: 14.5px;
+  margin-right: -1px;
+}
+
+.player-score em {
+  display: block;
+  text-align: center;
+  position: relative;
+  z-index: 99;
+  line-height: 45px;
+  font-size: 18px;
+  color: #6a6a6a;
+}
+
+.active-border {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #ff9c00;
+  box-shadow: 0 0 7px 0 #ffdd4b;
+  -webkit-box-shadow: 0 0 7px 0 #ffdd4b;
+  -moz-box-shadow: 0 0 7px 0 #ffdd4b;
+  transform: skew(-15deg);
+  -webkit-transform: skew(-15deg);
+  -moz-transform: skew(-15deg);
+  transition: all .3s;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+}
+
+.active-border.white {
+  background: #fff;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.colon {
+  float: left;
+  padding: 0 5px;
 }

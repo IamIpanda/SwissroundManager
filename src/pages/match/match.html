@@ -10,39 +10,54 @@
 </ion-header>
 
 <ion-content>
-    <ion-row>
-        <ion-col col-5>
-            <ion-card (click)="onPlayer1Click($event)">
-                <ion-card-content>
-                    {{match.player1.name}}
-                </ion-card-content>
-            </ion-card>
+    <ion-row class="row encounter">
+        <ion-col col-5.5 class="player-brief">
+            <div class="team-brief-logo player-brief-first">
+                <div class="player-score">
+                    <em *ngIf="match.state == MatchState.Win">胜</em>
+                    <em *ngIf="match.state == MatchState.Lose">败</em>
+                    <em *ngIf="match.state == MatchState.Peace">平</em>
+                    <i class="active-border white"></i>
+                </div>
+                <div class="player-name">
+                    <em>{{match.player1.name}}</em>
+                    <i class="active-border white"></i>
+                </div>
+            </div>
         </ion-col>
-        <ion-col col-2 class="card-word-vs"> vs </ion-col>
-        <ion-col col-5>
-            <ion-card (click)="onPlayer2Click($event)">
-                <ion-card-content>
-                    {{match.player2.name}}
-                </ion-card-content>
-            </ion-card>
+        <ion-col col-1 class="card-word-vs">
+            <em>vs</em>
+        </ion-col>
+        <ion-col col-5.5 class="player-brief">
+            <div class="team-brief-logo">
+                <div class="player-score">
+                    <em *ngIf="match.state == MatchState.Win">败</em>
+                    <em *ngIf="match.state == MatchState.Lose">胜</em>
+                    <em *ngIf="match.state == MatchState.Peace">平</em>
+                    <i class="active-border white"></i>
+                </div>
+                <div class="player-name">
+                    <em>{{match.player2.name}}</em>
+                    <i class="active-border white"></i>
+                </div>
+            </div>
         </ion-col>
     </ion-row>
     <ion-row>
-        <ion-card>
-            <ion-card-content>
-                {{match.reportStr}}
-            </ion-card-content>
-        </ion-card>
-    </ion-row>
-    <ion-row>
         <ion-col col-4>
-            <button ion-button [outline]="match.state != MatchState.Win" block (click)="matchWinClick($event)">{{match.player1.name}}胜利</button>
+            <button ion-button [outline]="match.state != MatchState.Win" block (click)="matchWinClick($event)">
+                {{match.player1.name}}胜利
+            </button>
         </ion-col>
         <ion-col col-4>
-            <button ion-button [outline]="match.state != MatchState.Peace" outline block (click)="matchPeaceClick($event)">双方平局</button>
+            <button ion-button [outline]="match.state != MatchState.Peace" outline block
+                    (click)="matchPeaceClick($event)">双方平局
+            </button>
         </ion-col>
         <ion-col col-4>
-            <button ion-button [outline]="match.state != MatchState.Lose" outline block (click)="matchLoseClick($event)">{{match.player2.name}}胜利</button>
+            <button ion-button [outline]="match.state != MatchState.Lose" outline block
+                    (click)="matchLoseClick($event)">{{match.player2.name}}胜利
+            </button>
         </ion-col>
     </ion-row>
 </ion-content>

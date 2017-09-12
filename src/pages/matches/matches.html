@@ -4,6 +4,10 @@
             <ion-icon name="menu"></ion-icon>
         </button>
         <ion-title>{{game.gameName}} 第 {{round.order}} 轮</ion-title>
+        <div class="buttons">
+            <button ion-button small color="calm" (click)="startAllTapped(event)">开始</button>
+            <button ion-button small color="danger" (click)="endThisRoundTapped(event)">结束</button>
+        </div>
     </ion-navbar>
 </ion-header>
 
@@ -11,17 +15,20 @@
     <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
     <ion-list>
         <button ion-item *ngFor="let match of matches" (click)="itemTapped($event, match)">
-            {{match.player1.name}} 对阵 {{match.player2.name}}
-            <div class="item-note" item-right>
-                {{match.stateStr}}
-            </div>
+            <ion-row class="match_info">
+                <ion-col col-4.5 class="player">{{match.player1.name}}</ion-col>
+                <ion-col col-3 class="semicolon">
+                    <p>VS</p>
+                    <p>{{match.stateStr}}</p>
+                </ion-col>
+                <ion-col col-4.5 class="target">{{match.player2.name}}</ion-col>
+            </ion-row>
         </button>
-        <ion-item *ngIf="round.byePlayer != null">
-            {{round.byePlayer.name}} 本轮轮空
-        </ion-item>
+        <button ion-item *ngIf="round.byePlayer != null">
+            <ion-row class="match_info">
+                <ion-col class="semicolon">{{round.byePlayer.name}} 本轮轮空</ion-col>
+            </ion-row>
+        </button>
+
     </ion-list>
-
-    <button ion-button block color="default" (click)="startAllTapped(event)">开始所有对局</button>
-    <button ion-button block color="danger" (click)="endThisRoundTapped(event)">结束本轮</button>
 </ion-content>
-
