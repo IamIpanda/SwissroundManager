@@ -44944,10 +44944,9 @@ MatchPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
         selector: 'page-list',template:/*ion-inline-start:"/Users/iami/Programming/mixProject/SwissroundManager/src/pages/match/match.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-buttons start>\n            <button ion-button icon-only navPop>\n                <ion-icon name="close"></ion-icon>\n            </button>\n        </ion-buttons>\n        <ion-title>{{match.player1.name}} vs {{match.player2.name}}</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n    <ion-row>\n        <ion-col col-5>\n            <ion-card (click)="onPlayer1Click($event)">\n                <ion-card-content>\n                    {{match.player1.name}}\n                </ion-card-content>\n            </ion-card>\n        </ion-col>\n        <ion-col col-2 class="card-word-vs"> vs </ion-col>\n        <ion-col col-5>\n            <ion-card (click)="onPlayer2Click($event)">\n                <ion-card-content>\n                    {{match.player2.name}}\n                </ion-card-content>\n            </ion-card>\n        </ion-col>\n    </ion-row>\n    <ion-row>\n        <ion-card>\n            <ion-card-content>\n                {{match.reportStr}}\n            </ion-card-content>\n        </ion-card>\n    </ion-row>\n    <ion-row>\n        <ion-col col-4>\n            <button ion-button [outline]="match.state != MatchState.Win" block (click)="matchWinClick($event)">{{match.player1.name}}胜利</button>\n        </ion-col>\n        <ion-col col-4>\n            <button ion-button [outline]="match.state != MatchState.Peace" outline block (click)="matchPeaceClick($event)">双方平局</button>\n        </ion-col>\n        <ion-col col-4>\n            <button ion-button [outline]="match.state != MatchState.Lose" outline block (click)="matchLoseClick($event)">{{match.player2.name}}胜利</button>\n        </ion-col>\n    </ion-row>\n</ion-content>\n'/*ion-inline-end:"/Users/iami/Programming/mixProject/SwissroundManager/src/pages/match/match.html"*/
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ViewController */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ViewController */]])
 ], MatchPage);
 
-var _a, _b, _c;
 //# sourceMappingURL=match.js.map
 
 /***/ }),
@@ -44992,7 +44991,7 @@ var MatchesPage = (function () {
     };
     MatchesPage.prototype.startAllTapped = function (event) {
         if (!this.round.canStart()) {
-            var alert = this.alertCtrl.create({
+            var alert_1 = this.alertCtrl.create({
                 title: '开始全部对局',
                 message: '部分对局已经存在结果。要擦除这些对局结果么？',
                 buttons: [
@@ -45001,14 +45000,14 @@ var MatchesPage = (function () {
                     { text: '取消' }
                 ]
             });
-            alert.present();
+            alert_1.present();
         }
         else
             this.round.startAll();
     };
     MatchesPage.prototype.endThisRoundTapped = function (event) {
         if (!this.round.canFinish()) {
-            var alert = this.alertCtrl.create({
+            var alert_2 = this.alertCtrl.create({
                 title: '结束本轮',
                 message: '部分对局还没有给出结果。要立即结束本轮么？',
                 buttons: [
@@ -45016,28 +45015,28 @@ var MatchesPage = (function () {
                     { text: '否' }
                 ]
             });
-            alert.present();
+            alert_2.present();
         }
         else
             this.newRound();
     };
     MatchesPage.prototype.newRound = function () {
         if (this.round.order >= this.game.rounds) {
-            var alert = this.alertCtrl.create({
+            var alert_3 = this.alertCtrl.create({
                 title: '瑞士轮结束',
                 message: '瑞士轮已经结束了所有轮次。'
             });
-            alert.present();
+            alert_3.present();
         }
         else {
             // 新一轮
             var ret = __WEBPACK_IMPORTED_MODULE_2__app_data_data__["a" /* Data */].newRound();
             if (!ret) {
-                var alert = this.alertCtrl.create({
+                var alert_4 = this.alertCtrl.create({
                     title: '无法排出足够数量的对局',
                     message: '瑞士轮应当结束了所有轮次'
                 });
-                alert.present();
+                alert_4.present();
             }
             // 数据同步
             this.round = __WEBPACK_IMPORTED_MODULE_2__app_data_data__["a" /* Data */].runningRound;
@@ -45050,10 +45049,9 @@ MatchesPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
         selector: 'page-list',template:/*ion-inline-start:"/Users/iami/Programming/mixProject/SwissroundManager/src/pages/matches/matches.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>{{game.gameName}} 第 {{round.order}} 轮</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>\n    <ion-list>\n        <button ion-item *ngFor="let match of matches" (click)="itemTapped($event, match)">\n            {{match.player1.name}} 对阵 {{match.player2.name}}\n            <div class="item-note" item-right>\n                {{match.stateStr}}\n            </div>\n        </button>\n        <ion-item *ngIf="round.byePlayer != null">\n            {{round.byePlayer.name}} 本轮轮空\n        </ion-item>\n    </ion-list>\n\n    <button ion-button block color="default" (click)="startAllTapped(event)">开始所有对局</button>\n    <button ion-button block color="danger" (click)="endThisRoundTapped(event)">结束本轮</button>\n</ion-content>\n\n'/*ion-inline-end:"/Users/iami/Programming/mixProject/SwissroundManager/src/pages/matches/matches.html"*/
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* AlertController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]])
 ], MatchesPage);
 
-var _a, _b, _c, _d;
 //# sourceMappingURL=matches.js.map
 
 /***/ }),
@@ -45114,7 +45112,9 @@ PlayerPage = __decorate([
 /**
  * @private
  */
-function get(obj, path) {
+/**
+ * @private
+ */ function get(obj, path) {
     path = path.split('.');
     for (var i = 0; i < path.length; i++) {
         if (!obj) {
@@ -45176,6 +45176,7 @@ var cordovaWarn = function (pluginName, method) {
         console.warn('Native: tried accessing the ' + pluginName + ' plugin but Cordova is not available. Make sure to include cordova.js or run in a device/simulator');
     }
 };
+//# sourceMappingURL=util.js.map 
 //# sourceMappingURL=util.js.map
 
 /***/ }),
@@ -56563,6 +56564,7 @@ PlayersPage = __decorate([
 
 
 
+//# sourceMappingURL=index.js.map 
 //# sourceMappingURL=index.js.map
 
 /***/ }),
@@ -56620,7 +56622,9 @@ function instanceAvailability(pluginObj, methodName) {
     return pluginObj._objectInstance && (!methodName || pluginObj._objectInstance[methodName] !== 'undefined');
 }
 function setIndex(args, opts, resolve, reject) {
-    if (opts === void 0) { opts = {}; }
+    if (opts === void 0) {
+        opts = {};
+    }
     // ignore resolve and reject in case sync
     if (opts.sync) {
         return args;
@@ -56684,7 +56688,9 @@ function setIndex(args, opts, resolve, reject) {
     return args;
 }
 function callCordovaPlugin(pluginObj, methodName, args, opts, resolve, reject) {
-    if (opts === void 0) { opts = {}; }
+    if (opts === void 0) {
+        opts = {};
+    }
     // Try to figure out where the success/error callbacks need to be bound
     // to our promise resolve/reject handlers.
     args = setIndex(args, opts, resolve, reject);
@@ -56698,7 +56704,9 @@ function callCordovaPlugin(pluginObj, methodName, args, opts, resolve, reject) {
     }
 }
 function wrapPromise(pluginObj, methodName, args, opts) {
-    if (opts === void 0) { opts = {}; }
+    if (opts === void 0) {
+        opts = {};
+    }
     var pluginResult, rej;
     var p = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util__["a" /* getPromise */])(function (resolve, reject) {
         pluginResult = callCordovaPlugin(pluginObj, methodName, args, opts, resolve, reject);
@@ -56714,7 +56722,9 @@ function wrapPromise(pluginObj, methodName, args, opts) {
     return p;
 }
 function wrapOtherPromise(pluginObj, methodName, args, opts) {
-    if (opts === void 0) { opts = {}; }
+    if (opts === void 0) {
+        opts = {};
+    }
     return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util__["a" /* getPromise */])(function (resolve, reject) {
         var pluginResult = callCordovaPlugin(pluginObj, methodName, args, opts);
         if (pluginResult) {
@@ -56731,7 +56741,9 @@ function wrapOtherPromise(pluginObj, methodName, args, opts) {
     });
 }
 function wrapObservable(pluginObj, methodName, args, opts) {
-    if (opts === void 0) { opts = {}; }
+    if (opts === void 0) {
+        opts = {};
+    }
     return new __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"](function (observer) {
         var pluginResult = callCordovaPlugin(pluginObj, methodName, args, opts, observer.next.bind(observer), observer.error.bind(observer));
         if (pluginResult && pluginResult.error) {
@@ -56755,7 +56767,9 @@ function wrapObservable(pluginObj, methodName, args, opts) {
     });
 }
 function callInstance(pluginObj, methodName, args, opts, resolve, reject) {
-    if (opts === void 0) { opts = {}; }
+    if (opts === void 0) {
+        opts = {};
+    }
     args = setIndex(args, opts, resolve, reject);
     if (instanceAvailability(pluginObj, methodName)) {
         return pluginObj._objectInstance[methodName].apply(pluginObj._objectInstance, args);
@@ -56769,7 +56783,9 @@ function callInstance(pluginObj, methodName, args, opts, resolve, reject) {
  * @returns {Observable}
  */
 function wrapEventObservable(event, element) {
-    if (element === void 0) { element = window; }
+    if (element === void 0) {
+        element = window;
+    }
     return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].fromEvent(element, event);
 }
 /**
@@ -56781,7 +56797,9 @@ function wrapEventObservable(event, element) {
  * @private
  */
 function overrideFunction(pluginObj, methodName, args, opts) {
-    if (opts === void 0) { opts = {}; }
+    if (opts === void 0) {
+        opts = {};
+    }
     return new __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"](function (observer) {
         var availabilityCheck = checkAvailability(pluginObj, methodName);
         if (availabilityCheck === true) {
@@ -56799,7 +56817,9 @@ function overrideFunction(pluginObj, methodName, args, opts) {
  * @private
  */
 var wrap = function (pluginObj, methodName, opts) {
-    if (opts === void 0) { opts = {}; }
+    if (opts === void 0) {
+        opts = {};
+    }
     return function () {
         var args = [];
         for (var _i = 0; _i < arguments.length; _i++) {
@@ -56827,7 +56847,9 @@ var wrap = function (pluginObj, methodName, opts) {
  * @private
  */
 function wrapInstance(pluginObj, methodName, opts) {
-    if (opts === void 0) { opts = {}; }
+    if (opts === void 0) {
+        opts = {};
+    }
     return function () {
         var args = [];
         for (var _i = 0; _i < arguments.length; _i++) {
@@ -56879,6 +56901,7 @@ function wrapInstance(pluginObj, methodName, opts) {
         }
     };
 }
+//# sourceMappingURL=plugin.js.map 
 //# sourceMappingURL=plugin.js.map
 
 /***/ }),
@@ -56891,12 +56914,17 @@ function wrapInstance(pluginObj, methodName, opts) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SplashScreen; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+        r = Reflect.decorate(decorators, target, key, desc);
+    else
+        for (var i = decorators.length - 1; i >= 0; i--)
+            if (d = decorators[i])
+                r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+        return Reflect.metadata(k, v);
 };
 
 
@@ -56935,17 +56963,17 @@ var SplashScreen = (function () {
     __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["a" /* Cordova */])({
             sync: true
-        }), 
-        __metadata('design:type', Function), 
-        __metadata('design:paramtypes', []), 
+        }),
+        __metadata('design:type', Function),
+        __metadata('design:paramtypes', []),
         __metadata('design:returntype', void 0)
     ], SplashScreen.prototype, "show", null);
     __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["a" /* Cordova */])({
             sync: true
-        }), 
-        __metadata('design:type', Function), 
-        __metadata('design:paramtypes', []), 
+        }),
+        __metadata('design:type', Function),
+        __metadata('design:paramtypes', []),
         __metadata('design:returntype', void 0)
     ], SplashScreen.prototype, "hide", null);
     SplashScreen = __decorate([
@@ -56954,11 +56982,12 @@ var SplashScreen = (function () {
             plugin: 'cordova-plugin-splashscreen',
             pluginRef: 'navigator.splashscreen',
             repo: 'https://github.com/apache/cordova-plugin-splashscreen'
-        }), 
+        }),
         __metadata('design:paramtypes', [])
     ], SplashScreen);
     return SplashScreen;
 }());
+//# sourceMappingURL=index.js.map 
 //# sourceMappingURL=index.js.map
 
 /***/ }),
@@ -56971,12 +57000,17 @@ var SplashScreen = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StatusBar; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+        r = Reflect.decorate(decorators, target, key, desc);
+    else
+        for (var i = decorators.length - 1; i >= 0; i--)
+            if (d = decorators[i])
+                r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+        return Reflect.metadata(k, v);
 };
 
 
@@ -57070,77 +57104,77 @@ var StatusBar = (function () {
     __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["a" /* Cordova */])({
             sync: true
-        }), 
-        __metadata('design:type', Function), 
-        __metadata('design:paramtypes', [Boolean]), 
+        }),
+        __metadata('design:type', Function),
+        __metadata('design:paramtypes', [Boolean]),
         __metadata('design:returntype', void 0)
     ], StatusBar.prototype, "overlaysWebView", null);
     __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["a" /* Cordova */])({
             sync: true
-        }), 
-        __metadata('design:type', Function), 
-        __metadata('design:paramtypes', []), 
+        }),
+        __metadata('design:type', Function),
+        __metadata('design:paramtypes', []),
         __metadata('design:returntype', void 0)
     ], StatusBar.prototype, "styleDefault", null);
     __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["a" /* Cordova */])({
             sync: true
-        }), 
-        __metadata('design:type', Function), 
-        __metadata('design:paramtypes', []), 
+        }),
+        __metadata('design:type', Function),
+        __metadata('design:paramtypes', []),
         __metadata('design:returntype', void 0)
     ], StatusBar.prototype, "styleLightContent", null);
     __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["a" /* Cordova */])({
             sync: true
-        }), 
-        __metadata('design:type', Function), 
-        __metadata('design:paramtypes', []), 
+        }),
+        __metadata('design:type', Function),
+        __metadata('design:paramtypes', []),
         __metadata('design:returntype', void 0)
     ], StatusBar.prototype, "styleBlackTranslucent", null);
     __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["a" /* Cordova */])({
             sync: true
-        }), 
-        __metadata('design:type', Function), 
-        __metadata('design:paramtypes', []), 
+        }),
+        __metadata('design:type', Function),
+        __metadata('design:paramtypes', []),
         __metadata('design:returntype', void 0)
     ], StatusBar.prototype, "styleBlackOpaque", null);
     __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["a" /* Cordova */])({
             sync: true
-        }), 
-        __metadata('design:type', Function), 
-        __metadata('design:paramtypes', [String]), 
+        }),
+        __metadata('design:type', Function),
+        __metadata('design:paramtypes', [String]),
         __metadata('design:returntype', void 0)
     ], StatusBar.prototype, "backgroundColorByName", null);
     __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["a" /* Cordova */])({
             sync: true
-        }), 
-        __metadata('design:type', Function), 
-        __metadata('design:paramtypes', [String]), 
+        }),
+        __metadata('design:type', Function),
+        __metadata('design:paramtypes', [String]),
         __metadata('design:returntype', void 0)
     ], StatusBar.prototype, "backgroundColorByHexString", null);
     __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["a" /* Cordova */])({
             sync: true
-        }), 
-        __metadata('design:type', Function), 
-        __metadata('design:paramtypes', []), 
+        }),
+        __metadata('design:type', Function),
+        __metadata('design:paramtypes', []),
         __metadata('design:returntype', void 0)
     ], StatusBar.prototype, "hide", null);
     __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["a" /* Cordova */])({
             sync: true
-        }), 
-        __metadata('design:type', Function), 
-        __metadata('design:paramtypes', []), 
+        }),
+        __metadata('design:type', Function),
+        __metadata('design:paramtypes', []),
         __metadata('design:returntype', void 0)
     ], StatusBar.prototype, "show", null);
     __decorate([
-        __WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["c" /* CordovaProperty */], 
+        __WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["c" /* CordovaProperty */],
         __metadata('design:type', Boolean)
     ], StatusBar.prototype, "isVisible", void 0);
     StatusBar = __decorate([
@@ -57150,11 +57184,12 @@ var StatusBar = (function () {
             pluginRef: 'StatusBar',
             repo: 'https://github.com/apache/cordova-plugin-statusbar',
             platforms: ['iOS', 'Android', 'Windows Phone 8', 'Windows 8', 'Windows 10']
-        }), 
+        }),
         __metadata('design:paramtypes', [])
     ], StatusBar);
     return StatusBar;
 }());
+//# sourceMappingURL=index.js.map 
 //# sourceMappingURL=index.js.map
 
 /***/ }),
@@ -74948,27 +74983,24 @@ exports.tryCatch = tryCatch;
 /***/ (function(module, exports) {
 
 var g;
-
 // This works in non-strict mode
-g = (function() {
-	return this;
+g = (function () {
+    return this;
 })();
-
 try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
+    // This works if eval is allowed (see CSP)
+    g = g || Function("return this")() || (1, eval)("this");
 }
-
+catch (e) {
+    // This works if the window reference is available
+    if (typeof window === "object")
+        g = window;
+}
 // g can still be undefined, but nothing to do about it...
 // We return undefined, instead of nothing here, so it's
 // easier to handle this case. if(!global) { ...}
-
 module.exports = g;
-
+//# sourceMappingURL=global.js.map
 
 /***/ }),
 /* 204 */
@@ -101583,6 +101615,7 @@ function checkReady() {
         }
     }, DEVICE_READY_TIMEOUT);
 }
+//# sourceMappingURL=bootstrap.js.map 
 //# sourceMappingURL=bootstrap.js.map
 
 /***/ }),
@@ -101613,7 +101646,9 @@ function checkReady() {
  * @private
  */
 function InstanceCheck(opts) {
-    if (opts === void 0) { opts = {}; }
+    if (opts === void 0) {
+        opts = {};
+    }
     return function (pluginObj, methodName, descriptor) {
         return {
             value: function () {
@@ -101642,7 +101677,9 @@ function InstanceCheck(opts) {
  * @private
  */
 function CordovaCheck(opts) {
-    if (opts === void 0) { opts = {}; }
+    if (opts === void 0) {
+        opts = {};
+    }
     return function (pluginObj, methodName, descriptor) {
         return {
             value: function () {
@@ -101726,7 +101763,9 @@ function Plugin(config) {
  * and the required plugin are installed.
  */
 function Cordova(opts) {
-    if (opts === void 0) { opts = {}; }
+    if (opts === void 0) {
+        opts = {};
+    }
     return function (target, methodName, descriptor) {
         return {
             value: function () {
@@ -101745,7 +101784,9 @@ function Cordova(opts) {
  * Wrap an instance method
  */
 function CordovaInstance(opts) {
-    if (opts === void 0) { opts = {}; }
+    if (opts === void 0) {
+        opts = {};
+    }
     return function (target, methodName) {
         return {
             value: function () {
@@ -101806,7 +101847,9 @@ function InstanceProperty(target, key) {
  * and the required plugin are installed.
  */
 function CordovaFunctionOverride(opts) {
-    if (opts === void 0) { opts = {}; }
+    if (opts === void 0) {
+        opts = {};
+    }
     return function (target, methodName, descriptor) {
         return {
             value: function () {
@@ -101826,7 +101869,9 @@ function CordovaFunctionOverride(opts) {
  *
  */
 function CordovaFiniteObservable(opts) {
-    if (opts === void 0) { opts = {}; }
+    if (opts === void 0) {
+        opts = {};
+    }
     if (opts.observable === false) {
         throw new Error('CordovaFiniteObservable decorator can only be used on methods that returns observable. Please provide correct option.');
     }
@@ -101858,6 +101903,7 @@ function CordovaFiniteObservable(opts) {
         };
     };
 }
+//# sourceMappingURL=decorators.js.map 
 //# sourceMappingURL=decorators.js.map
 
 /***/ }),

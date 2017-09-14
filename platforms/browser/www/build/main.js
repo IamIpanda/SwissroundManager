@@ -27393,13 +27393,13 @@ function Item_tsickle_Closure_declarations() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_action_sheet_action_sheet__ = __webpack_require__(55);
 /* unused harmony reexport ActionSheet */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_action_sheet_action_sheet_controller__ = __webpack_require__(116);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_3__components_action_sheet_action_sheet_controller__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return __WEBPACK_IMPORTED_MODULE_3__components_action_sheet_action_sheet_controller__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_action_sheet_action_sheet_component__ = __webpack_require__(54);
 /* unused harmony reexport ActionSheetCmp */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_alert_alert__ = __webpack_require__(57);
 /* unused harmony reexport Alert */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_alert_alert_controller__ = __webpack_require__(117);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_6__components_alert_alert_controller__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_6__components_alert_alert_controller__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_alert_alert_component__ = __webpack_require__(56);
 /* unused harmony reexport AlertCmp */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_app_app__ = __webpack_require__(6);
@@ -27493,9 +27493,9 @@ function Item_tsickle_Closure_declarations() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__components_modal_modal_component__ = __webpack_require__(71);
 /* unused harmony reexport ModalCmp */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__components_modal_modal_controller__ = __webpack_require__(146);
-/* unused harmony reexport ModalController */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_53__components_modal_modal_controller__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__components_nav_nav__ = __webpack_require__(74);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_54__components_nav_nav__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return __WEBPACK_IMPORTED_MODULE_54__components_nav_nav__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__components_nav_nav_pop__ = __webpack_require__(72);
 /* unused harmony reexport NavPop */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__components_nav_nav_pop_anchor__ = __webpack_require__(148);
@@ -27612,7 +27612,7 @@ function Item_tsickle_Closure_declarations() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_110__platform_dom_controller__ = __webpack_require__(8);
 /* unused harmony reexport DomController */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_111__platform_platform__ = __webpack_require__(3);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return __WEBPACK_IMPORTED_MODULE_111__platform_platform__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return __WEBPACK_IMPORTED_MODULE_111__platform_platform__["a"]; });
 /* unused harmony reexport setupPlatform */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_112__tap_click_haptic__ = __webpack_require__(38);
 /* unused harmony reexport Haptic */
@@ -27637,7 +27637,7 @@ function Item_tsickle_Closure_declarations() {
 /* unused harmony reexport UrlSerializer */
 /* unused harmony reexport DeepLinkConfigToken */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_121__navigation_view_controller__ = __webpack_require__(5);
-/* unused harmony reexport ViewController */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_121__navigation_view_controller__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_122__gestures_pan_gesture__ = __webpack_require__(46);
 /* unused harmony reexport PanGesture */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_123__gestures_gesture__ = __webpack_require__(234);
@@ -44909,21 +44909,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var MatchPage = (function () {
-    function MatchPage(navCtrl, navParams) {
+    function MatchPage(navCtrl, navParams, viewCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.viewCtrl = viewCtrl;
         console.log(navParams);
         this.match = navParams.get('match');
         this.MatchState = __WEBPACK_IMPORTED_MODULE_2__app_data_match__["a" /* MatchState */];
     }
     MatchPage.prototype.matchWinClick = function (event) {
         this.match.state = __WEBPACK_IMPORTED_MODULE_2__app_data_match__["a" /* MatchState */].Win;
+        this.dismiss();
     };
     MatchPage.prototype.matchPeaceClick = function (event) {
         this.match.state = __WEBPACK_IMPORTED_MODULE_2__app_data_match__["a" /* MatchState */].Peace;
+        this.dismiss();
     };
     MatchPage.prototype.matchLoseClick = function (event) {
         this.match.state = __WEBPACK_IMPORTED_MODULE_2__app_data_match__["a" /* MatchState */].Lose;
+        this.dismiss();
     };
     MatchPage.prototype.onPlayer1Click = function (event) {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__player_player__["a" /* PlayerPage */], { player: this.match.player1 });
@@ -44931,13 +44935,16 @@ var MatchPage = (function () {
     MatchPage.prototype.onPlayer2Click = function (event) {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__player_player__["a" /* PlayerPage */], { player: this.match.player2 });
     };
+    MatchPage.prototype.dismiss = function () {
+        this.viewCtrl.dismiss();
+    };
     return MatchPage;
 }());
 MatchPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-list',template:/*ion-inline-start:"/Users/iami/Programming/mixProject/SwissroundManager/src/pages/match/match.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>{{match.player1.name}} vs {{match.player2.name}}</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n    <ion-row>\n        <ion-col col-5>\n            <ion-card (click)="onPlayer1Click(event)">\n                <ion-card-content>\n                    {{match.player1.name}}\n                </ion-card-content>\n            </ion-card>\n        </ion-col>\n        <ion-col col-2 class="card-word-vs"> vs </ion-col>\n        <ion-col col-5>\n            <ion-card (click)="onPlayer2Click(event)">\n                <ion-card-content>\n                    {{match.player2.name}}\n                </ion-card-content>\n            </ion-card>\n        </ion-col>\n    </ion-row>\n    <ion-row>\n        <ion-col col-4>\n            <button ion-button [outline]="match.state != MatchState.Win" block (click)="matchWinClick(event)">{{match.player1.name}}胜利</button>\n        </ion-col>\n        <ion-col col-4>\n            <button ion-button [outline]="match.state != MatchState.Peace" outline block (click)="matchPeaceClick(event)">双方平局</button>\n        </ion-col>\n        <ion-col col-4>\n            <button ion-button [outline]="match.state != MatchState.Lose" outline block (click)="matchLoseClick(event)">{{match.player2.name}}胜利</button>\n        </ion-col>\n    </ion-row>\n    <ion-row>\n        <ion-card>\n            <ion-card-content>\n                {{match.reportStr}}\n            </ion-card-content>\n        </ion-card>\n    </ion-row>\n</ion-content>\n'/*ion-inline-end:"/Users/iami/Programming/mixProject/SwissroundManager/src/pages/match/match.html"*/
+        selector: 'page-list',template:/*ion-inline-start:"/Users/iami/Programming/mixProject/SwissroundManager/src/pages/match/match.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-buttons start>\n            <button ion-button icon-only navPop>\n                <ion-icon name="close"></ion-icon>\n            </button>\n        </ion-buttons>\n        <ion-title>{{match.player1.name}} vs {{match.player2.name}}</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n    <ion-row>\n        <ion-col col-5>\n            <ion-card (click)="onPlayer1Click($event)">\n                <ion-card-content>\n                    {{match.player1.name}}\n                </ion-card-content>\n            </ion-card>\n        </ion-col>\n        <ion-col col-2 class="card-word-vs"> vs </ion-col>\n        <ion-col col-5>\n            <ion-card (click)="onPlayer2Click($event)">\n                <ion-card-content>\n                    {{match.player2.name}}\n                </ion-card-content>\n            </ion-card>\n        </ion-col>\n    </ion-row>\n    <ion-row>\n        <ion-card>\n            <ion-card-content>\n                {{match.reportStr}}\n            </ion-card-content>\n        </ion-card>\n    </ion-row>\n    <ion-row>\n        <ion-col col-4>\n            <button ion-button [outline]="match.state != MatchState.Win" block (click)="matchWinClick($event)">{{match.player1.name}}胜利</button>\n        </ion-col>\n        <ion-col col-4>\n            <button ion-button [outline]="match.state != MatchState.Peace" outline block (click)="matchPeaceClick($event)">双方平局</button>\n        </ion-col>\n        <ion-col col-4>\n            <button ion-button [outline]="match.state != MatchState.Lose" outline block (click)="matchLoseClick($event)">{{match.player2.name}}胜利</button>\n        </ion-col>\n    </ion-row>\n</ion-content>\n'/*ion-inline-end:"/Users/iami/Programming/mixProject/SwissroundManager/src/pages/match/match.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ViewController */]])
 ], MatchPage);
 
 //# sourceMappingURL=match.js.map
@@ -44968,16 +44975,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var MatchesPage = (function () {
-    function MatchesPage(navCtrl, navParams, alertCtrl) {
+    function MatchesPage(navCtrl, navParams, alertCtrl, modalCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.alertCtrl = alertCtrl;
+        this.modalCtrl = modalCtrl;
         this.round = __WEBPACK_IMPORTED_MODULE_2__app_data_data__["a" /* Data */].runningRound;
         this.matches = __WEBPACK_IMPORTED_MODULE_2__app_data_data__["a" /* Data */].runningRound.matches;
         this.game = __WEBPACK_IMPORTED_MODULE_3__app_data_game__["a" /* Game */];
     }
     MatchesPage.prototype.itemTapped = function (event, item) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__match_match__["a" /* MatchPage */], { match: item });
+        // this.navCtrl.push(MatchPage, { match: item });
+        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_4__match_match__["a" /* MatchPage */], { match: item });
+        modal.present();
     };
     MatchesPage.prototype.startAllTapped = function (event) {
         if (!this.round.canStart()) {
@@ -45039,7 +45049,7 @@ MatchesPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
         selector: 'page-list',template:/*ion-inline-start:"/Users/iami/Programming/mixProject/SwissroundManager/src/pages/matches/matches.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>{{game.gameName}} 第 {{round.order}} 轮</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>\n    <ion-list>\n        <button ion-item *ngFor="let match of matches" (click)="itemTapped($event, match)">\n            {{match.player1.name}} 对阵 {{match.player2.name}}\n            <div class="item-note" item-right>\n                {{match.stateStr}}\n            </div>\n        </button>\n        <ion-item *ngIf="round.byePlayer != null">\n            {{round.byePlayer.name}} 本轮轮空\n        </ion-item>\n    </ion-list>\n\n    <button ion-button block color="default" (click)="startAllTapped(event)">开始所有对局</button>\n    <button ion-button block color="danger" (click)="endThisRoundTapped(event)">结束本轮</button>\n</ion-content>\n\n'/*ion-inline-end:"/Users/iami/Programming/mixProject/SwissroundManager/src/pages/matches/matches.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* AlertController */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]])
 ], MatchesPage);
 
 //# sourceMappingURL=matches.js.map
@@ -56489,7 +56499,7 @@ LeaderRulePage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
         selector: 'page-list',template:/*ion-inline-start:"/Users/iami/Programming/mixProject/SwissroundManager/src/pages/leader/rule/rule.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>规则设置</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-list-header>得分</ion-list-header>\n    <ion-item>\n      <ion-label fixed>胜者得分</ion-label>\n      <ion-input type="number" placeholder="1" value="{{score[matchState.Win]}}" (blur)="inputValueChanged($event, matchState.Win)"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label fixed>败者得分</ion-label>\n      <ion-input type="number" placeholder="0" value="{{score[matchState.Lose]}}" (blur)="inputValueChanged($event, matchState.Lose)"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label fixed>平局得分</ion-label>\n      <ion-input type="number" placeholder="0" value="{{score[matchState.Peace]}}" (blur)="inputValueChanged($event, matchState.Peace)"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label fixed>轮空得分</ion-label>\n      <ion-input type="number" placeholder="0" value="{{score[matchState.Bye]}}" (blur)="inputValueChanged($event, matchState.Bye)"></ion-input>\n    </ion-item>\n  </ion-list>\n  <ion-row>\n    <ion-col col-6>\n      <button ion-button block (click)="defaultsTapped($event)">预设</button>\n    </ion-col>\n    <ion-col col-6>\n      <button ion-button block (click)="peaceTapped($event)">平局</button>\n    </ion-col>\n  </ion-row>\n</ion-content>\n'/*ion-inline-end:"/Users/iami/Programming/mixProject/SwissroundManager/src/pages/leader/rule/rule.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ActionSheetController */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ActionSheetController */]])
 ], LeaderRulePage);
 
 //# sourceMappingURL=rule.js.map
@@ -75363,13 +75373,13 @@ var MyApp = (function () {
     return MyApp;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */]),
-    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */])
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Nav */]),
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Nav */])
 ], MyApp.prototype, "nav", void 0);
 MyApp = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({template:/*ion-inline-start:"/Users/iami/Programming/mixProject/SwissroundManager/src/app/app.html"*/'<ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>菜单</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/Users/iami/Programming/mixProject/SwissroundManager/src/app/app.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
 ], MyApp);
 
 //# sourceMappingURL=app.component.js.map
