@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ActionSheetController } from 'ionic-angular';
-import {Data} from "../../../app/data/data";
 import { Config, PeaceMode } from "../../../app/data/config";
 import {MatchState} from "../../../app/data/match";
 
@@ -76,6 +75,8 @@ export class LeaderRulePage {
 
   inputValueChanged(event, status: MatchState) {
     Config.score[status] = parseInt(event.target.value);
+    if (!Config.score[status])
+      Config.score[status] = parseInt(event.target.placeholder);
   }
 
   refreshThisPage()

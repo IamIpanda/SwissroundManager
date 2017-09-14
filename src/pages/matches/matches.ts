@@ -5,6 +5,7 @@ import { Match } from "../../app/data/match";
 import { Round } from "../../app/data/round";
 import { Game } from "../../app/data/game";
 import { MatchPage } from "../match/match";
+import { PlayersPage } from "../players/players"
 
 @Component({
     selector: 'page-list',
@@ -65,7 +66,18 @@ export class MatchesPage {
         {
             let alert = this.alertCtrl.create({
                 title: '瑞士轮结束',
-                message: '瑞士轮已经结束了所有轮次。'
+                message: '瑞士轮已经结束了所有轮次。',
+                buttons: [
+                    {
+                        text: '确定',
+                        handler: () => {
+                            alert.dismiss().then(() => {
+                                this.navCtrl.setRoot(PlayersPage, { animation: true })
+                            });
+                            return false;
+                        }
+                    }
+                ]
             });
             alert.present();
         }
@@ -76,7 +88,7 @@ export class MatchesPage {
             {
                 let alert = this.alertCtrl.create({
                     title: '无法排出足够数量的对局',
-                    message: '瑞士轮应当结束了所有轮次'
+                    message: '瑞士轮应当结束了所有轮次。'
                 });
                 alert.present();
             }

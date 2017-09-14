@@ -51,8 +51,8 @@ export class Data
     public static sortPlayers()
 	{
 		this.players.sort((playerA, playerB) => {
-			let distance = playerA.score - playerB.score;
-			if (distance == 0) return playerA.smallScore - playerB.smallScore;
+			let distance = playerB.score - playerA.score;
+			if (distance == 0) return playerB.smallScore - playerA.smallScore;
 			return distance;
 		});
 	}
