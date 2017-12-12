@@ -7,6 +7,8 @@ import { LeaderPage } from '../pages/leader/leader';
 import { MatchesPage } from '../pages/matches/matches'
 import { PlayersPage } from '../pages/players/players';
 import { HistoryPage } from '../pages/history/history'
+import { Data } from "./data/data";
+import { Game } from "./data/game";
 
 @Component({
   templateUrl: 'app.html'
@@ -43,5 +45,9 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+  saveGame() {
+      Data.saveData(Game.gameName);
   }
 }

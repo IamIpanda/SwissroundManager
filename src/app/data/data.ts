@@ -1,6 +1,7 @@
 import { Round } from './round'
 import { Player } from './player'
 import { Match } from './match'
+import {Game} from "./game";
 
 export class Data
 {
@@ -63,4 +64,71 @@ export class Data
 		Data.sortPlayers();
 		return this.players.indexOf(player) + 1;
 	}
+
+	static cachedCycleData : Map<Player, Array<Match>> = new Map();
+	private static decycleData()
+    {
+        Data.cachedCycleData.clear();
+        for(let player of Data.players)
+        {
+            // Data.cachedCycleData.set(player, player.matches);
+            player.matches.length = 0;
+        }
+    }
+
+    private static recycleData()
+    {
+        for (let round of Data.rounds)
+            for(let match of round.matches)
+            {
+                match.player1.matches.push(match);
+                match.player2.matches.push(match);
+            }
+    }
+
+    public static saveData(dataName: string)
+    {
+        let data = Data.readStorageData();
+        Data.decycleData();
+        data[dataName] = { name: Game.gameName, roundCount: Game.rounds, players: Data.players, rounds: Data.rounds };
+        console.log(data[dataName]);
+        window.localStorage.savedData = JSON.stringify(data);
+        Data.recycleData();
+    }
+
+    public static loadData(dataName: string): boolean
+    {
+        let data = Data.readStorageData()[dataName];
+        if (data)
+        {
+            Data.players = data.players;
+            Data.rounds = data.rounds;
+            Game.gameName = data.name;
+            Game.rounds = data.roundCount;
+            Data.recycleData();
+            return true;
+        }
+        else
+            return false;
+    }
+
+    public static getDataList()
+    {
+        return Object.keys(Data.readStorageData());
+    }
+
+    public static removeData(dataName: string)
+    {
+        let data = Data.readStorageData();
+        data.dataName = null;
+        window.localStorage.savedData = JSON.stringify(data);
+    }
+
+
+    public static readStorageData()
+    {
+        let str = window.localStorage.savedData;
+        if (str) return JSON.parse(str);
+        else return {}
+    }
 }

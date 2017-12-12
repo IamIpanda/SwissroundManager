@@ -1,0 +1,18 @@
+<ion-header>
+    <ion-navbar>
+        <ion-buttons start>
+            <button ion-button icon-only navPop>
+                <ion-icon name="close"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>载入旧存档</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <button ion-item *ngFor="let name of data" (click)="itemTapped($event, name)">
+            {{name}}
+        </button>
+    </ion-list>
+</ion-content>

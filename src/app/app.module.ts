@@ -6,6 +6,7 @@ import { MyApp } from './app.component';
 import { LeaderPage } from '../pages/leader/leader';
 import { LeaderRulePage } from '../pages/leader/rule/rule';
 import { LeaderPlayerPage } from '../pages/leader/players/players'
+import { ArchivesPage } from "../pages/leader/archives/archives";
 import { PlayersPage } from '../pages/players/players';
 import { PlayerPage } from '../pages/player/player';
 import { MatchesPage } from '../pages/matches/matches';
@@ -25,7 +26,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     PlayerPage,
     MatchesPage,
     MatchPage,
-    HistoryPage
+    HistoryPage,
+    ArchivesPage
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
       PlayerPage,
       MatchesPage,
       MatchPage,
-      HistoryPage
+      HistoryPage,
+      ArchivesPage
   ],
   providers: [
     StatusBar,

@@ -17,7 +17,6 @@ export class Round
 
     public generate(players : Player[]) : Match[]
     {
-        console.log('');
         let operatingPlayers = players.slice(0); // clone;
         // 随机决定轮空玩家
         if (players.length % 2 == 1)
